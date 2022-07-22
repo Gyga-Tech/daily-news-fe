@@ -1,7 +1,10 @@
+
 const Home = () => {
 
     return(
-        <div>Ini Home</div>
+        <div className="">
+
+        </div>
     )
 }
 

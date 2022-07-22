@@ -1,8 +1,9 @@
 const Navbar = () => {
-
-    return(
-        <div>Ini Navbar</div>
-    )
+  return (
+    <div>
+        
+    </div>
+  )
 }
 
 export default Navbar
