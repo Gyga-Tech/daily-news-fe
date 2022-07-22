@@ -1,0 +1,10 @@
+.container-card {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.btn-explore {
+    width: 369px ;
+    height: 85px;
+}
