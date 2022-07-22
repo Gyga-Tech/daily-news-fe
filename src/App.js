@@ -8,7 +8,6 @@ import Notification from './page/Notification';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import SignUp from './page/Auth/SignUp';
 import SignIn from './page/Auth/SignIn';
-import Article from './page/Article';
 
 function App() {
   return (
