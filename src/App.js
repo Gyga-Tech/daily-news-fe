@@ -5,6 +5,7 @@ import Auth from './page/Auth';
 import Category from './page/Category';
 import Articles from './page/Articles';
 import Notification from './page/Notification';
+import AddArticles from './page/AddArticles';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path="/category" element={<Category/>} />
       <Route path="/articles" element={<Articles />} />
       <Route path="/notification" element={<Notification />} />
+      <Route path="/addarticles" element={<AddArticles/>}/>
       <Route />
     </Routes>
     </BrowserRouter>
