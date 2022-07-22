@@ -1,6 +1,43 @@
 import React from "react";
 import "./ContentStory.css"
+
 const ContentStory = () => {
+    const [ toggle, setToggle ] = useState(false)
+  const isOpen = () => {
+    setToggle(!toggle)
+  }
+
+  const config = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    autoplay:false,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 468,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  }
     return (<>
 
         <div className="section-story d-flex flex-row">
