@@ -1,0 +1,14 @@
+.section-story{
+    background-color: #D7DDEC;
+    height: 70vh;
+}
+
+.card-left .title h3{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;
+}
+
+.card-left{
+    margin-left: 10rem;
+    margin-top: 5rem;
+}

@@ -1,0 +1,143 @@
+import axios from "axios";
+import React from "react";
+import { useState, useEffect } from "react";
+import Slider from "react-slick";
+import "./Content.css"
+
+const Loading = () => {
+    return <div>Loading....</div>
+}
+
+const Content = () => {
+
+    // var settings = {
+    //     dots: true,
+    //     infinite: false,
+    //     speed: 500,
+    //     autoplay: true,
+    //     slidesToShow: 5,
+    //     slidesToScroll: 5,
+    //     initialSlide: 0,
+    //     responsive: [
+    //         {
+    //             breakpoint: 1024,
+    //             settings: {
+    //                 slidesToShow: 5,
+    //                 slidesToScroll: 5,
+    //                 infinite: true,
+    //                 dots: true
+    //             }
+    //         },
+    //         {
+    //             breakpoint: 600,
+    //             settings: {
+    //                 slidesToShow: 2,
+    //                 slidesToScroll: 2,
+    //                 initialSlide: 2
+    //             }
+    //         },
+    //         {
+    //             breakpoint: 480,
+    //             settings: {
+    //                 slidesToShow: 1,
+    //                 slidesToScroll: 1
+    //             }
+    //         }
+    //     ]
+    // };
+
+    const [listCover, setListCover] = useState()
+
+    useEffect(() => {
+        axios({
+            method: "GET",
+            url: 'http://localhost:9511/api/v5/movies'
+        }).then((res) => {
+            setListCover(res.data.data)
+        })
+    })
+
+    return (<>
+
+        <div className="section-content d-flex flex-column">
+            <div className="popular-tags mx-5 mt-5">
+                <div className="field-popular-tag">
+                    <h6>Popular Tags</h6>
+                </div>
+                <div className="btn-tag d-flex flex-row justify-content-between mt-2">
+                    <button className="btn btn-light text-primary">#ladygaga</button>
+                    <button className="btn btn-light text-primary">#jokowidodo</button>
+                    <button className="btn btn-light text-primary">#dayniki</button>
+                    <button className="btn btn-light text-primary">#ladygaga</button>
+                    <button className="btn btn-light text-primary">#jokowidodo</button>
+                    <button className="btn btn-light text-primary">#dayniki</button>
+                    <button className="btn btn-light text-primary">#ladygaga</button>
+                    <button className="btn btn-light text-primary">#jokowidodo</button>
+                    <button className="btn btn-light text-primary">#dayniki</button>
+                </div>
+            </div>
+            <div className="category d-flex flex-column mt-5">
+                <div className="field-category">
+                    <h6 className="mx-5">Category</h6>
+                </div>
+                {/* <Slider {...settings}> */}
+                    <div className="field-cover d-flex flex-row mx-5 justify-content-between">
+                        <div className="d-flex flex-row">
+                            {!listCover ? (<Loading />) : listCover.map((item, index) => {
+                                return (
+                                    <div className="card-category-list mx-3 mt-3" key={index}>
+                                        <img src={`http://localhost:9511/uploads/${item.cover}`} alt={item.title} title={item.title} />
+                                        <p className="mt-2 text-center">{item.title}</p>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                {/* </Slider> */}
+            </div>
+            <div className="recommended d-flex flex-column mt-5">
+                <div className="field-recommended mx-5 mt-5">
+                    <h6>Recommended</h6>
+                </div>
+                <div className="card-recommended d-flex flex-row justify-content-between">
+                    <div className="d-flex flex-row mx-5">
+                        {!listCover ? (<Loading />) : listCover.map((item, index) => {
+                            return (
+                                <>
+                                    <div className="card-recommended-list d-flex flex-row mx-2 mt-3 shadow-lg mb-5 bg-white rounded" style={{ width: "396px", height: "202px" }}>
+                                        <div className="cover" key={index}>
+                                            <img src={`http://localhost:9511/uploads/${item.cover}`} alt="covid" title="covid" style={{ width: "126px", height: "202px" }}></img>
+                                        </div>
+                                        <div className="content d-flex flex-column mx-3">
+                                            <div className="content-title text-primary mt-3">
+                                                <h6>COVID-19</h6>
+                                            </div>
+                                            <div className="content-fill">
+                                                <p>Why corona never ends? <br /> Lets see how its facts</p>
+                                            </div>
+                                            <div className="properties d-flex flex-row justify-content-between mt-5">
+                                                <div className="like">
+                                                    <i className="far fa-thumbs-up"></i>
+                                                    <p>2.1k</p>
+                                                </div>
+                                                <div className="time">
+                                                    <i className="far fa-clock"></i>
+                                                    <p>3m ago</p>
+                                                </div>
+                                                <div className="tagged">
+                                                    <i className="fas fa-tag"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
+                            )
+                        })}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </>)
+}
+
+export default Content
