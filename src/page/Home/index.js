@@ -1,7 +1,10 @@
 const Home = () => {
 
-    return(
-        <div>Ini Home</div>
+
+    return(<>
+         <div>Ini Home</div>
+         <button className="btn btn-primary">Hallo</button>
+    </>  
     )
 }
 

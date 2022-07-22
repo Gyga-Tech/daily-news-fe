@@ -1,7 +1,22 @@
+import Content from "./Content"
+import Content2 from "./Content2"
+import Header from "./Header"
+import "./index.css"
+
 const Category = () => {
     
-    return (
-        <div>Ini Category</div>
+    return (<>
+        <Header />
+        <main className="px-5">
+            <div className="row">
+                <Content />
+                <Content2 />
+            </div>
+           
+        </main>
+        
+    </>
+       
     )
 }
 

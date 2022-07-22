@@ -6,6 +6,7 @@ import Category from './page/Category';
 import Articles from './page/Articles';
 import Notification from './page/Notification';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Article from './page/Article';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/authenticaion" element={<Auth/>} />
       <Route path="/category" element={<Category/>} />
-      <Route path="/articles" element={<Articles />} />
+      <Route path="/article" element={<Article />} />
       <Route path="/notification" element={<Notification />} />
       <Route />
     </Routes>
