@@ -6,6 +6,8 @@ import Category from './page/Category';
 import Articles from './page/Articles';
 import Notification from './page/Notification';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import SignUp from './page/Auth/SignUp';
+import SignIn from './page/Auth/SignIn';
 import Article from './page/Article';
 
 function App() {
@@ -13,7 +15,10 @@ function App() {
     <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/authenticaion" element={<Auth/>} />
+      <Route path="/authenticaion" element={<Auth/>}>
+        <Route path='signup' element={<SignUp/>}/>
+        <Route path='signin' element={<SignIn/>}/>
+      </Route>
       <Route path="/category" element={<Category/>} />
       <Route path="/article" element={<Article />} />
       <Route path="/notification" element={<Notification />} />

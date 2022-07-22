@@ -1,0 +1,16 @@
+.garis{
+    width: 134px;
+    height: 3px;
+    background-color: white;
+}
+.container-auth{
+    height: 100vh;
+}
+.p1{
+    margin: 0;
+}
+.btn-login{
+
+    width: 505px!important;
+    height: 75px!important;
+}

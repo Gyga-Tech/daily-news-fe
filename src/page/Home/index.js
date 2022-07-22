@@ -1,10 +1,15 @@
+import Navbar from "../../component/Navbar"
+import Footer from "../../component/Footer"
 const Home = () => {
 
-
-    return(<>
-         <div>Ini Home</div>
-         <button className="btn btn-primary">Hallo</button>
-    </>  
+    return(
+        <>
+        
+        <Navbar/>
+        <Footer />
+        </>
+       
+        
     )
 }
 
