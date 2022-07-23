@@ -1,7 +1,12 @@
-const Articles = () => {
+import Header from './Header'
+import Content from './Content'
 
+const Articles = () => {
     return(
-        <div>Ini Articles</div>
+        <div className='articles'>
+            <Header />
+            <Content /> 
+        </div>
     )
 }
 

@@ -1,0 +1,16 @@
+.profile-container {
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    text-align: center;
+}
+
+@media only screen and (min-width: 576px) {
+    
+}
+
+.thumbnail {
+    width: 595px;
+    height: 370px;
+    overflow: hidden;
+}
