@@ -2,6 +2,8 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import Slider from "react-slick";
+import { useGetArticleQuery } from "../../features/article/articleSlice";
+
 import "./Content.css"
 
 const Loading = () => {
@@ -13,8 +15,8 @@ const Content = () => {
     // var settings = {
     //     dots: true,
     //     infinite: false,
-    //     speed: 500,
-    //     autoplay: true,
+    //     speed: 300,
+    //     autoplay:true,
     //     slidesToShow: 5,
     //     slidesToScroll: 5,
     //     initialSlide: 0,
@@ -45,17 +47,25 @@ const Content = () => {
     //         }
     //     ]
     // };
+        // const [listCover, setListCover] = useState()
 
-    const [listCover, setListCover] = useState()
+    // useEffect(() => {
+    //     axios({
+    //         method: "GET",
+    //         url: 'http://localhost:9511/api/v5/movies'
+    //     }).then((res) => {
+    //         setListCover(res.data.data)
+    //     })
+    // })
 
-    useEffect(() => {
-        axios({
-            method: "GET",
-            url: 'http://localhost:9511/api/v5/movies'
-        }).then((res) => {
-            setListCover(res.data.data)
-        })
-    })
+    const{
+        data:article,
+        isLoading,
+        isSuccess,
+        isError,
+        error
+    } =  useGetArticleQuery()
+
 
     return (<>
 
@@ -75,25 +85,35 @@ const Content = () => {
                     <button className="btn btn-light text-primary">#jokowidodo</button>
                     <button className="btn btn-light text-primary">#dayniki</button>
                 </div>
+                
             </div>
             <div className="category d-flex flex-column mt-5">
                 <div className="field-category">
                     <h6 className="mx-5">Category</h6>
                 </div>
-                {/* <Slider {...settings}> */}
                     <div className="field-cover d-flex flex-row mx-5 justify-content-between">
+                            {/* <Slider {...settings}> */}
                         <div className="d-flex flex-row">
-                            {!listCover ? (<Loading />) : listCover.map((item, index) => {
+                            {/* {!listCover ? (<Loading />) : listCover.map((item, index) => {
                                 return (
                                     <div className="card-category-list mx-3 mt-3" key={index}>
                                         <img src={`http://localhost:9511/uploads/${item.cover}`} alt={item.title} title={item.title} />
                                         <p className="mt-2 text-center">{item.title}</p>
                                     </div>
                                 )
-                            })}
+                            })} */}
+                            {isLoading ? (<Loading/>) : article.data.map((item, index)=>{
+                                return (
+                                    <div className="card-category-list mx-3 mt-3" key={index}>
+                                        <img src={`http://localhost:9511/uploads/${item.cover}`} alt={item.title} title={item.title} />
+                                        <p className="mt-2 text-center">{item.title}</p>
+                                    </div>
+                                )
+                            }) }
+                            {isError && (<h1>Error</h1>) }
                         </div>
+                            {/* </Slider> */}
                     </div>
-                {/* </Slider> */}
             </div>
             <div className="recommended d-flex flex-column mt-5">
                 <div className="field-recommended mx-5 mt-5">
@@ -101,7 +121,7 @@ const Content = () => {
                 </div>
                 <div className="card-recommended d-flex flex-row justify-content-between">
                     <div className="d-flex flex-row mx-5">
-                        {!listCover ? (<Loading />) : listCover.map((item, index) => {
+                        {isLoading ? (<Loading />) : article.data.map((item, index) => {
                             return (
                                 <>
                                     <div className="card-recommended-list d-flex flex-row mx-2 mt-3 shadow-lg mb-5 bg-white rounded" style={{ width: "396px", height: "202px" }}>

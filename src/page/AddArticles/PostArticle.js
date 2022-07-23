@@ -22,6 +22,7 @@ const PostArticle = () => {
             setError(true)
         }
     }
+
     return (<>
         <div className="section-post-article d-flex flex-column">
             <div className="top-bar d-flex flex-row mb-5 mt-5">

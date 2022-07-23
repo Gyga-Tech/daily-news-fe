@@ -7,6 +7,7 @@ import Articles from './page/Articles';
 import Notification from './page/Notification';
 import AddArticles from './page/AddArticles';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Article from './page/Article'
 import SignUp from './page/Auth/SignUp';
 import SignIn from './page/Auth/SignIn';
 

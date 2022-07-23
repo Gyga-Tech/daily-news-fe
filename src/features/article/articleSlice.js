@@ -3,14 +3,14 @@ import { apiSlice } from "../api/apiSlice";
 export const  articleSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getArticle: builder.query({
-            query: () => "/photos"
+            query: () => "/movies"
         }),
         getArticleId: builder.query({
             query: (id) => `/photos/${id}`
         }),
         addArticle: builder.mutation({
             query: (body) => ({
-                url: "/article",
+                url: "/movies",
                 method: "POST",
                 body: body,
             })
