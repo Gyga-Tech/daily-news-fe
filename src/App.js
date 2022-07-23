@@ -8,19 +8,23 @@ import Notification from './page/Notification';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import SignUp from './page/Auth/SignUp';
 import SignIn from './page/Auth/SignIn';
+import Forgot from './page/Forgot';
+
+
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/authenticaion" element={<Auth/>}>
+      <Route path="/authentication" element={<Auth/>}>
         <Route path='signup' element={<SignUp/>}/>
         <Route path='signin' element={<SignIn/>}/>
       </Route>
       <Route path="/category" element={<Category/>} />
       <Route path="/articles" element={<Articles />} />
       <Route path="/notification" element={<Notification />} />
+      <Route path="/forgot" element={<Forgot />} />
       <Route />
     </Routes>
     </BrowserRouter>

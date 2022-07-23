@@ -8,9 +8,18 @@
 }
 .p1{
     margin: 0;
+    color: white;
 }
 .btn-login{
 
     width: 505px!important;
     height: 75px!important;
 }
+
+.c1{
+    padding-right:  80px;
+}
+.c2{
+    padding-left: 90px;
+}
+
