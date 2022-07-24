@@ -1,7 +1,7 @@
 const Comment = () => {
-    return(<section className="mx-5">
+    return(<section className="mx-5 comment-wrap">
         <h3 className="font-l my-4">Comment</h3>
-        <div className="row mb-3">
+        <div className="row mb-3 comment">
             <div className="col-3 profile-container me-3">
                 <img width="55px" alt="profile-pitcure"/>
             </div>

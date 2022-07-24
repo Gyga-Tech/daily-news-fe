@@ -1,5 +1,5 @@
-import Header from './Header'
-import Content from './Content'
+import Header from './HeaderArticles'
+import Content from './ContentArticles'
 
 const Articles = () => {
     return(
