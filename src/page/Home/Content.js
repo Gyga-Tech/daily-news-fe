@@ -59,12 +59,12 @@ const Content = () => {
     // })
 
     const{
-        data:article,
+        data: article,
         isLoading,
         isSuccess,
         isError,
         error
-    } =  useGetArticleQuery()
+    } =  useGetArticleQuery({})
 
 
     return (<>
@@ -102,50 +102,50 @@ const Content = () => {
                                     </div>
                                 )
                             })} */}
-                            {isLoading ? (<Loading/>) : article.data.map((item, index)=>{
+                            {isLoading ? (<Loading/>) : article?.data?.results?.map((item, index)=>{
                                 return (
                                     <div className="card-category-list mx-3 mt-3" key={index}>
-                                        <img src={`http://localhost:9511/uploads/${item.cover}`} alt={item.title} title={item.title} />
+                                        <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} alt={item.title} title={item.title} />
                                         <p className="mt-2 text-center">{item.title}</p>
                                     </div>
                                 )
                             }) }
-                            {isError && (<h1>Error</h1>) }
+                            {isError && (<h1>Error</h1>) } 
                         </div>
                             {/* </Slider> */}
                     </div>
             </div>
-            <div className="recommended d-flex flex-column mt-5">
+            <div className="recommended d-flex flex-column" style={{marginTop:"10rem"}}>
                 <div className="field-recommended mx-5 mt-5">
                     <h6>Recommended</h6>
                 </div>
                 <div className="card-recommended d-flex flex-row justify-content-between">
                     <div className="d-flex flex-row mx-5">
-                        {isLoading ? (<Loading />) : article.data.map((item, index) => {
+                        {isLoading ? (<Loading />) : article?.data?.results?.map((item, index) => {
                             return (
                                 <>
                                     <div className="card-recommended-list d-flex flex-row mx-2 mt-3 shadow-lg mb-5 bg-white rounded" style={{ width: "396px", height: "202px" }}>
                                         <div className="cover" key={index}>
-                                            <img src={`http://localhost:9511/uploads/${item.cover}`} alt="covid" title="covid" style={{ width: "126px", height: "202px" }}></img>
+                                            <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} alt="covid" title="covid" style={{ width: "126px", height: "202px" }}></img>
                                         </div>
                                         <div className="content d-flex flex-column mx-3">
                                             <div className="content-title text-primary mt-3">
-                                                <h6>COVID-19</h6>
+                                                <h6>{item.title.slice(0, 20)}</h6>
                                             </div>
                                             <div className="content-fill">
-                                                <p>Why corona never ends? <br /> Lets see how its facts</p>
+                                                <p>{item.content.slice(0, 50)}...</p>
                                             </div>
-                                            <div className="properties d-flex flex-row justify-content-between mt-5">
-                                                <div className="like">
-                                                    <i className="far fa-thumbs-up"></i>
+                                            <div className="properties d-flex flex-row justify-content-between mx-1 mt-5" style={{fontSize:"0.8rem"}}>
+                                                <div className="like d-flex flex-row">
+                                                    <i className="bi bi-hand-thumbs-up mx-1"></i>
                                                     <p>2.1k</p>
                                                 </div>
-                                                <div className="time">
-                                                    <i className="far fa-clock"></i>
+                                                <div className="time d-flex flex-row">
+                                                    <i className="bi bi-clock mx-1"></i>
                                                     <p>3m ago</p>
                                                 </div>
-                                                <div className="tagged">
-                                                    <i className="fas fa-tag"></i>
+                                                <div className="tagged d-flex flex-row">
+                                                    <i className="bi bi-tag mx-1"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -153,6 +153,7 @@ const Content = () => {
                                 </>
                             )
                         })}
+                        {isError && (<h1>Error</h1>) }
                     </div>
                 </div>
             </div>

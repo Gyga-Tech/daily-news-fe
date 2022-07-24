@@ -10,7 +10,7 @@ const Category = () => {
         <main className="px-5">
             <div className="row">
                 <Content />
-                <Content2 />
+                {/* <Content2 /> */}
             </div>
            
         </main>

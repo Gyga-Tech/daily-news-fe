@@ -11,7 +11,7 @@ const Comment = () => {
              <textarea class="form-control mb-3" id="comment" placeholder="leave your comment here" rows="3"></textarea>
              <button className="btn btn-primary">Submit</button>
             </div>
-            
+    
             </form>
         </div>
         <div className="d-flex mb-3">

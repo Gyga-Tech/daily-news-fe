@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: "http://localhost:9511/api/v5",
+    baseUrl: "https://gyga-news.herokuapp.com/api/v1",
 })
 
 export const apiSlice = createApi({
