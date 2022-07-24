@@ -6,3 +6,25 @@
     width: 505px;
     height: 75px;
 }
+
+
+.lp{
+    padding-top: 5px;
+    display: flex;    
+}
+
+.lp1{
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.g2{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.b1{
+    padding-top: 20px;
+  
+}
+

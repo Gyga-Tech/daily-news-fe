@@ -6,6 +6,7 @@ import Headers from "./Headers"
 
 import Navbar from "../../component/Navbar"
 import Footer from "../../component/Footer"
+
 const Home = () => {
 
     return(
@@ -16,6 +17,7 @@ const Home = () => {
         <ContentStory/>
         <ContentLatestNews/>
         <Footer />
+       
         </>
     )
 }
