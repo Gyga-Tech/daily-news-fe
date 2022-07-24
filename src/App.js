@@ -6,9 +6,10 @@ import Articles from './page/Articles';
 import Notification from './page/Notification';
 import AddArticles from './page/AddArticles';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Article from './page/Article'
+import Article from './page/Article';
 import SignUp from './page/Auth/SignUp';
 import SignIn from './page/Auth/SignIn';
+import Search from './page/Search/Search';
 
 function App() {
   return (
@@ -21,8 +22,10 @@ function App() {
       </Route>
       <Route path="/category" element={<Category/>} />
       <Route path="/article" element={<Article />} />
+      <Route path="/articles" element={<Articles />} />
       <Route path="/notification" element={<Notification />} />
       <Route path="/addarticles" element={<AddArticles/>}/>
+      <Route path="/search" element={<Search/>}/>
       <Route />
     </Routes>
     </BrowserRouter>
