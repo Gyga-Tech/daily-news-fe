@@ -9,6 +9,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Article from './page/Article'
 import SignUp from './page/Auth/SignUp';
 import SignIn from './page/Auth/SignIn';
+import CatArticle from './page/CatArticle';
 
 function App() {
   return (
@@ -20,7 +21,12 @@ function App() {
         <Route path='signin' element={<SignIn/>}/>
       </Route>
       <Route path="/category" element={<Category/>} />
-      <Route path="/article" element={<Article />} />
+      <Route path="/category/article" element={<CatArticle/>}>
+        <Route path=":categoryId" element={<CatArticle/>} />
+      </Route>
+      <Route path="/article" element={<Article />} >
+        <Route path=":articleId" element={<Article />} />
+      </Route>
       <Route path="/notification" element={<Notification />} />
       <Route path="/addarticles" element={<AddArticles/>}/>
       <Route />

@@ -35,7 +35,7 @@ const ContentLatestNews = () => {
                 <h6>Latest News</h6>
             </div>
             <div className="latest-news-list d-flex flex-row flex-wrap">
-                {isLoading ? (<Loading />) : article.data.map((item, index) => {
+                {/* {isLoading ? (<Loading />) : article.data.map((item, index) => {
                     return (
                         <>
                             <div className="card-latest-news-list d-flex flex-row mx-2 mt-3 shadow-lg mb-5 bg-white rounded" style={{ width: "396px", height: "202px" }}>
@@ -67,7 +67,7 @@ const ContentLatestNews = () => {
                                 </div>
                             </div>
                         </>)
-                })}
+                })} */}
             </div>
         </div>
     </>)

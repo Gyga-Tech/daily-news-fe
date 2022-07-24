@@ -59,7 +59,7 @@ const Content = () => {
     // })
 
     const{
-        data:article,
+        data: article,
         isLoading,
         isSuccess,
         isError,
@@ -102,15 +102,15 @@ const Content = () => {
                                     </div>
                                 )
                             })} */}
-                            {isLoading ? (<Loading/>) : article.data.map((item, index)=>{
+                            {/* {isLoading ? (<Loading/>) : article.data.map((item, index)=>{
                                 return (
                                     <div className="card-category-list mx-3 mt-3" key={index}>
-                                        <img src={`http://localhost:9511/uploads/${item.cover}`} alt={item.title} title={item.title} />
+                                        <img src={item.thumbnailUrl} alt={item.title} title={item.title} />
                                         <p className="mt-2 text-center">{item.title}</p>
                                     </div>
                                 )
                             }) }
-                            {isError && (<h1>Error</h1>) }
+                            {isError && (<h1>Error</h1>) } */}
                         </div>
                             {/* </Slider> */}
                     </div>
@@ -126,7 +126,7 @@ const Content = () => {
                                 <>
                                     <div className="card-recommended-list d-flex flex-row mx-2 mt-3 shadow-lg mb-5 bg-white rounded" style={{ width: "396px", height: "202px" }}>
                                         <div className="cover" key={index}>
-                                            <img src={`http://localhost:9511/uploads/${item.cover}`} alt="covid" title="covid" style={{ width: "126px", height: "202px" }}></img>
+                                            <img src={`http://localhost:5000/static/${item.cover}`} alt="covid" title="covid" style={{ width: "126px", height: "202px" }}></img>
                                         </div>
                                         <div className="content d-flex flex-column mx-3">
                                             <div className="content-title text-primary mt-3">
