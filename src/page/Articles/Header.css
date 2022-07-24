@@ -5,12 +5,12 @@
     height: 100vh;
 }
 
-.header .title {
+.header .title2 {
     padding-top: 10em;
     padding-left: 5em;
 }
 
-.header .title h1 {
+.header .title2 h1 {
     font-family: 'Georgia';
     font-style: normal;
     font-weight: 700;
@@ -22,7 +22,7 @@
 
 }
 
-.header .title p {
+.header .title2 p {
     width: 40%;
     font-style: normal;
     font-weight: 400;
@@ -31,11 +31,11 @@
 
     color: #0D253C;
 }
-.header .title button {
+.header .title2 button {
     padding: 10px 30px;
 }
 
-.title {
+.title2 {
     position: absolute;
     content: '';
     display: block;
