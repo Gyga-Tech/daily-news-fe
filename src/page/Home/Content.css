@@ -11,4 +11,9 @@
 .card-category-list img{
     width: 204px;
     height: 222px;
+    object-fit: cover;
+}
+
+.cover img{
+    object-fit: cover;
 }

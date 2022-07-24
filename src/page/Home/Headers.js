@@ -1,5 +1,6 @@
 import React from "react";
 // import background from "../../img/"
+import "./Headers.css"
 
 const Headers = ()=>{
     return(
