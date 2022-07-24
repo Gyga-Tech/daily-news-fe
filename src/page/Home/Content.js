@@ -59,7 +59,7 @@ const Content = () => {
     // })
 
     const{
-        data:article,
+        data: article,
         isLoading,
         isSuccess,
         isError,
@@ -110,7 +110,7 @@ const Content = () => {
                                     </div>
                                 )
                             }) }
-                            {isError && (<h1>Error</h1>) }
+                            {isError && (<h1>Error</h1>) } 
                         </div>
                             {/* </Slider> */}
                     </div>
