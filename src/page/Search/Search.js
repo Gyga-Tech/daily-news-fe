@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useGetArticleQuery } from "../../features/article/articleSlice";
-import imgcontent from "../../assets/img/health-horizontal.png"
 import { Link } from "react-router-dom";
 
 const Loading = () => {
@@ -11,7 +10,7 @@ const Loading = () => {
 //SEARCH
 const Search = () => {
     const [query, setQuery] = useState("")
-    const [sort, setSort] = useState({})
+    const [sort, setSort] = useState({limit:12})
     const {
         data: article,
         isLoading,
@@ -37,10 +36,10 @@ const Search = () => {
                         </button>
                         <ul className="dropdown-menu dropdown-menu-end">
                             <li><a className="dropdown-item" >Name (A-Z) </a></li>
-                            <li><a className="dropdown-item" href="#">Name (Z-A) </a></li>
-                            <li><a className="dropdown-item" href="#">Category</a></li>
+                            <li><a className="dropdown-item" onClick={()=>setSort(prevState=> ({...prevState, sortby: "title"}))}>Name (Z-A) </a></li>
+                            <li><a className="dropdown-item" onClick={()=>setSort(prevState=> ({...prevState, sortby: "categories_id"}))}>Category</a></li>
                             <li><a className="dropdown-item" onClick={()=>setSort(prevState=> ({...prevState, sortby: "created_at"}))}>Last Added</a></li>
-                            <li><a className="dropdown-item" href="#">Last Modified</a></li>                            
+                            <li><a className="dropdown-item" onClick={()=>setSort(prevState=> ({...prevState, sortby: "updated_at"}))}>Last Modified</a></li>                            
                         </ul>
                     </div>
                 </div>
@@ -68,7 +67,7 @@ const Search = () => {
                 }).map((item, index) => {
                     return (
                         <Link to={`/article/${item.categories_id}`} style={{textDecoration:"none", color:"#0D253C"}}>
-                        <div className="card-article-list d-flex flex-column mx-2 shadow-lg mb-5 bg-body rounded text-center" style={{ width: "260px", height: "293px" }}>
+                        <div className="card-article-list d-flex flex-column mx-3 shadow-lg mb-5 bg-body rounded text-center" style={{ width: "260px", height: "293px" }}>
                             <div className="header-content d-flex" key={index}>
                                 <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} alt={item.title} title={item.title} style={{ width: "260px", height: "146px" }} />
                             </div>

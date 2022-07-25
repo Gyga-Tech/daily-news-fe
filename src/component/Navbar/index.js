@@ -1,12 +1,16 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+// import human from "../../assets/img/human.svg"
 import "./index.css"
 
 const Navbar = () => {
+   const {userId} = useSelector((state) => state.auth)
+   console.log(userId)
 
     return(
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid d-flex justify-content-around px-5">
-            <Link to="/" className="navbar-brand font-xl bold " href="#">Daily- News</Link >
+            <Link to="/" className="navbar-brand font-xl bold " href="#">Daily-News</Link>
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -23,12 +27,21 @@ const Navbar = () => {
                         <Link to="/category" className="nav-link font-m">Category</Link>
                     </li>
                 </ul>
+                {
+                  userId ?  (<><form className="d-flex" role="search">
+                  <input  className="form-control me-2" type="search" placeholder="Search" aria-label= " Search"/>
+                  {/* <button class="btn btn-outline-success" type="submit">Search</button> */}
 
-                  <form className="d-flex" role="search">
-                     <Link to="/authentication/signup" className="nav-link m-3 font-m bold">Sign Up</Link>
-                     <Link to="/authentication/signin" ><button className="btn btn-primary m-3 font-m" type="submit">Sign In</button></Link>
-                     
                 </form>
+                <div className="h">
+                <img src="" alt="notif" />
+                </div>
+                  
+                <Link to="/users"><img src="" alt="human" /></Link>  </>) : (<><Link to="/authentication/signup" className="nav-link m-3 font-m bold">Sign Up</Link>
+                <Link to="/authentication/signin" ><button className="btn btn-primary m-3 font-m" type="submit">Sign In</button></Link></>)
+                }
+                 
+                
 
             </div>
         </div>
@@ -36,7 +49,8 @@ const Navbar = () => {
   );
 };
 
-    
-    
 
 export default Navbar
+
+
+

@@ -21,7 +21,7 @@ const Header = () => {
         console.log(article)
         // content = article.map((item) => <img src={item.url} alt="article" />)
         // content = <img src={article.url} width="595px" alt="article" />
-        content = article.data.map((item, index) => <Render key={item.article_id} item={item} />)
+        content = article?.data?.map((item, index) => <Render key={item.article_id} item={item} />)
     } else if (isError) {
         console.log(error)
         content = <h1>error</h1>
@@ -55,7 +55,7 @@ const Render = (props) => {
                 </div>
             </div>
             <div className="col-md-6">
-                <div className="container content">
+                <div className="container content-artcle">
                     <div className="d-flex title">
                         <h1 className="font-xl ">{item.title}</h1>
 
@@ -72,8 +72,8 @@ const Render = (props) => {
                     <div className="d-grid gap-2 mx-3 mb-3 ">
                     <button className="btn btn-secondary btn-lg">Share Article Link</button>
                     </div>
-                    {/* <button>Edit Article</button>
-                    <select>
+                    {/* <button className="btn-edit">Edit Article</button>
+                    <select className="select-edit">
                         <option selected>Add to category</option>
                         <option>One</option>
                         <option>Two</option>
