@@ -1,0 +1,42 @@
+
+.imgPreview{
+    width: 175px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #376AED4D;
+    border-radius: 5px;
+}
+
+/* .imgPreview input[type="file"]{
+    display: none;
+} */
+
+.imgPreview .customFileUpload{
+    margin-top: 28rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 200;
+    cursor: pointer;
+    background-color: #0D253C;
+    border-radius: 5px;
+}
+
+.imgPreview .customFileUpload:hover{
+    background-color: #163a5c;
+}
+
+.action-upload{
+    margin-top: 9.1rem;
+    margin-left: 0.72rem;
+}
+
+
+.imgPreview label{
+    width: 250px;
+    line-height:2.4em;
+}

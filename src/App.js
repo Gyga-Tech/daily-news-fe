@@ -12,6 +12,9 @@ import SignIn from './page/Auth/SignIn';
 import Search from './page/Search/Search';
 import CatArticle from './page/CatArticle';
 import Forgot from './page/Forgot';
+import CategoryAdmin from './dashboard/CategoryAdmin';
+import AdminArticle from './dashboard/ArticleAdmin';
+
 
 
 
@@ -37,7 +40,8 @@ function App() {
       <Route path="/forgot" element={<Forgot />} />
       <Route path="/addarticles" element={<AddArticles/>}/>
       <Route path="/search" element={<Search/>}/>
-      <Route />
+      <Route path='/dashboard/admin-category' element={<CategoryAdmin/>}/>
+      <Route path='/dashboard/admin-article' element={<AdminArticle/>} />
     </Routes>
     </BrowserRouter>
     
