@@ -55,7 +55,7 @@ const Render = (props) => {
                 </div>
             </div>
             <div className="col-md-6">
-                <div className="container content">
+                <div className="container content-artcle">
                     <div className="d-flex title">
                         <h1 className="font-xl ">{item.title}</h1>
 
@@ -72,13 +72,13 @@ const Render = (props) => {
                     <div className="d-grid gap-2 mx-3 mb-3 ">
                     <button className="btn btn-secondary btn-lg">Share Article Link</button>
                     </div>
-                    <button>Edit Article</button>
-                    <select>
+                    {/* <button className="btn-edit">Edit Article</button>
+                    <select className="select-edit">
                         <option selected>Add to category</option>
                         <option>One</option>
                         <option>Two</option>
                         <option>Three</option>
-                    </select>
+                    </select> */}
                 </div>
             </div>
         </div>

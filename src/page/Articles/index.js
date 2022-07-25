@@ -1,5 +1,5 @@
-import Header from './Header'
-import Content from './Content'
+import Header from './HeaderArticles'
+import Content from './ContentArticles'
 import Navbar from '../../component/Navbar'
 import Footer from '../../component/Footer'
 
@@ -9,7 +9,7 @@ const Articles = () => {
     
     <Navbar/>
 <div className='articles'>
-    <Header />
+    <Header/>
     <Content />
 </div>
     <Footer/> 

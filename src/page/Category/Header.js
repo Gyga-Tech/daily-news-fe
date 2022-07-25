@@ -1,4 +1,4 @@
-import { height } from "@mui/system"
+
 import headerAsset from "../../assets/img/header-section2.png"
 
 const Header = () => {
