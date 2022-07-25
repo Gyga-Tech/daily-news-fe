@@ -5,7 +5,7 @@ const Header  = () => {
     <h4 className="font-s bold">Back</h4>
     </div>
     <div className="col-md-8 d-flex justify-content-center">
-        <h3 className="font-l">Artcile in Pending</h3>
+        <h3 className="font-l">Artcile In Pending</h3>
     </div>
     <div className="col-2">
         <img/>
