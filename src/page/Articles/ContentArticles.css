@@ -1,0 +1,32 @@
+.button-filter {
+    margin: 20px 5px;
+    margin-top: 0px;
+    height: 40px;
+    width: 90px;
+}
+
+.icon-filter {
+    margin-right: 10px;
+}
+
+.articles-class {
+    display: flex;
+    justify-content: space-between;
+}
+
+.view-more {
+    cursor: pointer;
+}
+
+.article-row {
+    margin-bottom: 20px;
+}
+
+.btn {
+    border-radius: 0px;
+}
+
+.menu-filter {
+    margin-left: 0px;
+}
+

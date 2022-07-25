@@ -6,7 +6,7 @@ const Auth = () => {
     return(
         <div className="container-fluid">
             <div className="row ">
-                    <div className="col-5">             
+                    <div className="col-6">             
                         <div className="container-auth bg-primary d-flex flex-column justify-content-between px-5 py-3 ">
                              <div>
                                 <Link to="/" className="font-l color-white m-5">Home Page</Link>

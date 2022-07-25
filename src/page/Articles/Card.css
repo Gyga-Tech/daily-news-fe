@@ -1,8 +1,36 @@
 
-
-.card {
-    width: 25rem;
+.cardies {
+    display: flex ;
+    justify-content: evenly;
 }
+
+.card-articles {
+    width: 300px;
+    border-radius: 0px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+.card-articles:hover {
+    background-color: cornsilk;
+}
+
+.card-img-top {
+    border-radius: 0px;
+    width: 250px;
+    margin: 20px 25px;
+    object-fit: cover;
+}
+
 
 .red {
     background-color: red;
@@ -12,14 +40,12 @@
     box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253) !important;
 }
 
-.card-body {
-    padding: 3rem 0 !important;
-}
-
 .card-text {
     font-size: 0.9rem;
     padding: 0.4rem 1.9rem;
 }
+
+
 
 .card-footer {
     justify-content: center;

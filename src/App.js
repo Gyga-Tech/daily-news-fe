@@ -15,6 +15,7 @@ import Forgot from './page/Forgot';
 import CategoryAdmin from './dashboard/CategoryAdmin';
 import AdminArticle from './dashboard/ArticleAdmin';
 
+import WaitingList from './dashboard/WaitingList';
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path='signin' element={<SignIn/>}/>
       </Route>
       <Route path="/category" element={<Category/>} />
+      <Route path="/articles" element={<Articles />} />
       <Route path="/article" element={<Article />} />
       <Route path="/articles" element={<Articles />} />
       <Route path="/category/article" element={<CatArticle/>}>
@@ -42,6 +44,8 @@ function App() {
       <Route path="/search" element={<Search/>}/>
       <Route path='/dashboard/admin-category' element={<CategoryAdmin/>}/>
       <Route path='/dashboard/admin-article' element={<AdminArticle/>} />
+      <Route path="/dashboard/article-pending" element={<WaitingList/>} />
+      <Route />
     </Routes>
     </BrowserRouter>
     
