@@ -1,5 +1,6 @@
 import Header from './HeaderArticles'
 import Content from './ContentArticles'
+import Navbar from '../../component/Navbar'
 
 
 const Articles = () => {
