@@ -1,10 +1,17 @@
-// import { useSelector } from "react-redux"
+import { useSelector } from "react-redux"
+import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom"
 
-// const VerifyAuth = () => {
 
-//     const {token} = useSelector((state) => state.auth)
+function VerifyAuth() {
+    const {token} = useSelector((state) => state.auth)
+    const location = useLocation()
+    
+    return (
+        token ? 
+        <Outlet /> :
+        <Navigate to="/authentication/signin" state={{from: location}} replace/>
+        )
+    // return content
+}
 
-//     return token ? (<></>)
-// }
-
-// return VerifyAuth
+export default VerifyAuth

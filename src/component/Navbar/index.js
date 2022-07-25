@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import notif from "../../assets/img/Notif.svg"
-import human from "../../assets/img/human.svg"
+// import notif from "../../assets/img/Notif.svg"
+// import human from "../../assets/img/human.svg"
 import "./index.css"
 
 const Navbar = () => {
@@ -35,10 +35,10 @@ const Navbar = () => {
 
                 </form>
                 <div className="h">
-                <img src={notif} alt="notif" />
+                <img src="" alt="notif" />
                 </div>
                   
-                <Link to="/users"><img src={human} alt="human" /></Link>  </>) : (<><Link to="/authentication/signup" className="nav-link m-3 font-m bold">Sign Up</Link>
+                <Link to="/users"><img src="" alt="human" /></Link>  </>) : (<><Link to="/authentication/signup" className="nav-link m-3 font-m bold">Sign Up</Link>
                 <Link to="/authentication/signin" ><button className="btn btn-primary m-3 font-m" type="submit">Sign In</button></Link></>)
                 }
                  
