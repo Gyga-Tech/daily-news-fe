@@ -12,6 +12,7 @@ import SignIn from './page/Auth/SignIn';
 import Search from './page/Search/Search';
 import CatArticle from './page/CatArticle';
 import Forgot from './page/Forgot';
+import User from './page/User';
 import CategoryAdmin from './dashboard/CategoryAdmin';
 import AdminArticle from './dashboard/ArticleAdmin';
 
@@ -45,10 +46,11 @@ function App() {
       <Route path='/dashboard/admin-category' element={<CategoryAdmin/>}/>
       <Route path='/dashboard/admin-article' element={<AdminArticle/>} />
       <Route path="/dashboard/article-pending" element={<WaitingList/>} />
+      <Route path="/user" element={<User />} />
       <Route />
     </Routes>
     </BrowserRouter>
-    
+
   );
 }
 

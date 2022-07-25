@@ -16,6 +16,7 @@
 
 .view-more {
     cursor: pointer;
+    align-items: center;
 }
 
 .article-row {

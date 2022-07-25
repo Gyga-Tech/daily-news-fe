@@ -1,23 +1,44 @@
 import React from "react";
 import { useState } from "react";
 import { useGetArticleQuery } from "../../features/article/articleSlice";
-import { Link } from "react-router-dom";
+import { useDeleteArticleMutation } from "../../features/article/articleSlice";
+
+import { Link, useSearchParams } from "react-router-dom";
 
 
 const Loading = () => {
     return <div>Loading....</div>
 }
 const ArticleAdmin = () => {
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [query, setQuery] = useState("")
+    const [sort, setSort] = useState({ limit: 12 })
+    const {
+        data: article,
+        isLoading,
+        isSuccess,
+        isError,
+        error
+    } = useGetArticleQuery(sort)
 
-        const [query, setQuery] = useState("")
-        const [sort, setSort] = useState({limit:12})
-        const {
-            data: article,
-            isLoading,
-            isSuccess,
-            isError,
-            error
-        } = useGetArticleQuery(sort)
+    const [
+        deleteArticlesId, { isLoading: deleteLoading, isSuccess: deleteSuccess, isError: deleteIsError, error: deleteError }
+    ] = useDeleteArticleMutation()
+
+    const handleDelete = (e) => {
+        
+        if (window.confirm("Are You Sure") == true) {
+            deleteArticlesId(e)
+            if (deleteSuccess) {
+                alert("Category has been deleted")
+            } if (deleteIsError) {
+                alert(deleteError.originalStatus)
+            }
+        }
+    }
+
+
+
     return (<>
         <div className="section-search d-flex flex-column bg-white">
             <div className="search-header d-flex flex-row justify-content-between" style={{ marginTop: "5rem" }}>
@@ -65,8 +86,8 @@ const ArticleAdmin = () => {
                     }
                 }).map((item, index) => {
                     return (
-                        <Link to={`/article/${item.categories_id}`} style={{ textDecoration: "none", color: "#0D253C" }}>
-                            <div className="card-article-list d-flex flex-column mx-3 shadow-lg mb-5 bg-body rounded text-center" style={{ width: "260px", height: "293px" }}>
+                        <div className="card-article-list d-flex flex-column mx-3 shadow-lg bg-body rounded text-center" key={index} style={{ width: "260px", height: "293px", marginBottom: "5rem" }}>
+                            <Link to={`/article/${item.categories_id}`} style={{ textDecoration: "none", color: "#0D253C" }}>
                                 <div className="header-content d-flex" key={index}>
                                     <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} alt={item.title} title={item.title} style={{ width: "260px", height: "146px" }} />
                                 </div>
@@ -90,8 +111,11 @@ const ArticleAdmin = () => {
                                         <i className="bi bi-tag"></i>
                                     </div>
                                 </div>
+                            </Link>
+                            <div className="action-delete">
+                                <button className="btn btn-danger" type="button" value={item.article_id} onClick={(e)=> handleDelete(e.target.value)} style={{ borderRadius: "10px", width: "100%" }}>Delete</button>
                             </div>
-                        </Link>
+                        </div>
                     )
                 })}
                 {isError && (<h1>Error</h1>)}

@@ -29,7 +29,7 @@
     margin: auto;
 }
 
-.content {
+.content-artcle {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -39,7 +39,7 @@
     font-size: 36px;
     line-height: 49px;
 }
-.content button {
+/* .content .btn-edit {
     height: 50px;
     color: #fff;
     border: none;
@@ -50,7 +50,7 @@
     background: #0D253C;
 
 }
-.content select {
+.content .select-edit {
     text-align: center;
     height: 50px;
     width: 70%;
@@ -59,7 +59,7 @@
     outline: none;
     background: #EFF4FF;
 
-}
+} */
 .comment-wrap {
     margin-top: 5em;
 }

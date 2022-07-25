@@ -1,3 +1,4 @@
+import Navbar from '../../component/Navbar/index'
 import Header from './HeaderArticles'
 import Content from './ContentArticles'
 import Navbar from '../../component/Navbar'
@@ -9,7 +10,7 @@ const Articles = () => {
     
     <Navbar/>
 <div className='articles'>
-    <Header />
+    <Header/>
     <Content />
 </div>
     <Footer/> 
