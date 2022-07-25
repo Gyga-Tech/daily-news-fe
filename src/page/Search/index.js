@@ -5,8 +5,9 @@ import Search from "./Search";
 
 const Search = ()=>{
     return (<>
-        <Navbar />
+        <Navbar/>
         <Search/>
-        <Footer />
+        <Footer/>
     </>)
 }
+export default Search

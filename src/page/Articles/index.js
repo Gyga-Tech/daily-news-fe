@@ -1,18 +1,19 @@
 import Header from './HeaderArticles'
 import Content from './ContentArticles'
 import Navbar from '../../component/Navbar'
+import Footer from '../../component/Footer'
 
 
 const Articles = () => {
-    return(
-        <>
-        <Navbar />
-        <div className='articles'>
-            <Header />
-            <Content /> 
-        </div>
-        </>
-        
+    return(<>
+    
+    <Navbar/>
+<div className='articles'>
+    <Header />
+    <Content />
+</div>
+    <Footer/> 
+    </>
     )
 }
 

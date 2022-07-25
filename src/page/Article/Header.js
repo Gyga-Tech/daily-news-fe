@@ -21,7 +21,7 @@ const Header = () => {
         console.log(article)
         // content = article.map((item) => <img src={item.url} alt="article" />)
         // content = <img src={article.url} width="595px" alt="article" />
-        content = article.data.map((item, index) => <Render key={item.article_id} item={item} />)
+        content = article?.data?.map((item, index) => <Render key={item.article_id} item={item} />)
     } else if (isError) {
         console.log(error)
         content = <h1>error</h1>

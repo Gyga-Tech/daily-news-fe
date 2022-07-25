@@ -17,8 +17,7 @@ const Category = () => {
             </div>
            
         </main>
-        <Footer />
-        
+        <Footer/>
     </>
        
     )

@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import notif from "../../assets/img/Notif.svg"
+import human from "../../assets/img/human.svg"
 import "./index.css"
 
 const Navbar = () => {
@@ -26,14 +28,21 @@ const Navbar = () => {
                         <Link to="/category" className="nav-link font-m">Category</Link>
                     </li>
                 </ul>
-                  { userId ? (
-                    <h1>udah login</h1>
-                  ) :(<form className="d-flex" role="search">
-                     <Link to="/authentication/signup" className="nav-link m-3 font-m bold">Sign Up</Link>
-                     <Link to="/authentication/signin" ><button className="btn btn-primary m-3 font-m" type="submit">Sign In</button></Link>
-                </form>)
-                  }
+                {
+                  userId ?  (<><form className="d-flex" role="search">
+                  <input  className="form-control me-2" type="search" placeholder="Search" aria-label= " Search"/>
+                  {/* <button class="btn btn-outline-success" type="submit">Search</button> */}
+
+                </form>
+                <div className="h">
+                <img src={notif} alt="notif" />
+                </div>
                   
+                <Link to="/users"><img src={human} alt="human" /></Link>  </>) : (<><Link to="/authentication/signup" className="nav-link m-3 font-m bold">Sign Up</Link>
+                <Link to="/authentication/signin" ><button className="btn btn-primary m-3 font-m" type="submit">Sign In</button></Link></>)
+                }
+                 
+                
 
             </div>
         </div>
@@ -41,7 +50,8 @@ const Navbar = () => {
   );
 };
 
-    
-    
 
 export default Navbar
+
+
+
