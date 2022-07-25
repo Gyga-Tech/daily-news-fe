@@ -12,6 +12,7 @@ import SignIn from './page/Auth/SignIn';
 import Search from './page/Search/Search';
 import CatArticle from './page/CatArticle';
 import Forgot from './page/Forgot';
+import WaitingList from './dashboard/WaitingList';
 
 
 
@@ -37,6 +38,7 @@ function App() {
       <Route path="/forgot" element={<Forgot />} />
       <Route path="/addarticles" element={<AddArticles/>}/>
       <Route path="/search" element={<Search/>}/>
+      <Route path="/dashboard/article-pending" element={<WaitingList/>} />
       <Route />
     </Routes>
     </BrowserRouter>

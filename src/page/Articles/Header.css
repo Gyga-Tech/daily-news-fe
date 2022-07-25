@@ -36,7 +36,6 @@
 }
 
 .title2 {
-    position: absolute;
     content: '';
     display: block;
     bottom: 0;

@@ -22,7 +22,7 @@ const Section1 = () => {
         content = <h1>Loading...</h1>
     } else if(isSuccess) {
         content = article.data.map((item, index) => <Link key={index} to={`/category/article/${item.categories_id}`}>
-        <button className="btn btn-primary me-3" >{item.categories_name}</button>
+        <button className={`btn btn-light ${params.categoryId == item.categories_id ? "text-primary bold active" : ""} me-3`} >{item.categories_name}</button>
         </Link>)
     } else if  (isError) {
         content = <h1>Error</h1>
@@ -33,7 +33,7 @@ const Section1 = () => {
     return(
     <>
         <section className="m-3">
-            <div className="d-flex mb-3">
+            <div className="d-flex mb-3 justify-content-center mb-3">
             {content}
             </div>
             <div class="input-group mb-3" style={{width: "10rem"}}>

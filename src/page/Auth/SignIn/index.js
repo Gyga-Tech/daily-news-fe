@@ -8,10 +8,10 @@ import twitter from "../../../assets/img/Twitter.svg"
 const SignIn = ()=>{
 return(
     <>
-    <div className="col px-5">
+    <div className="col-6 px-5" >
         <div className="container-signup d-flex flex-column justify-content-center align-items-center p-5">
             <div className="sign m-5">
-            < h3 className="font-xl">Sign In</h3>
+            <h3 className="font-xl">Sign In</h3>
             <p className="font-s color-gray ">Hey, welcome back to News Today!</p>
             </div>
                    
