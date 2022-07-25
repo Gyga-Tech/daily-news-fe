@@ -1,20 +1,21 @@
 import "./Card.css";
 import React from "react";
 import { Link } from "react-router-dom";
-import Healthrzntl from "../../assets/img/newspaper-girl.jpg"
 
-const CardArticles = () => {
+const CardArticles = (props) => {
+    const {item} = props
     const like = false
     return (
         <div className="col-lg-3 col-md-6 mb-4 cardies">
-            <Link to="/article">
+            
             <div className="card card-articles">
                 <div className="inner-img">
-                    <img src={Healthrzntl} className="card-img-top" alt="..." />
+                    <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} className="card-img-top" alt="..." />
                 </div>
                     <div className="card-body">
-                        <h5 className="card-title text-center">Shut Up</h5>
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 className="card-title text-center">{item.title}</h5>
+                        <p className="card-text">{item.content.slice(0, 130)}
+                        <Link to={`/article/${item.article_id}`}>... Read more</Link></p>
                     </div>
                     <div className="card-footer d-flex justify-content-evenly">
                         <div>
@@ -23,12 +24,11 @@ const CardArticles = () => {
                         </div>
                         <div>
                             <i className="bi bi-clock-history me-1"></i>
-                            <small className="text-muted">Updated 3 mins ago</small>
+                            <small className="text-muted">{item.created_at}</small>
                         </div>
                         <i className="bi bi-bookmark"></i>
                     </div>
             </div>
-            </Link>
         </div>
     )
 }

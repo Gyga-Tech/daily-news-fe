@@ -72,13 +72,13 @@ const Render = (props) => {
                     <div className="d-grid gap-2 mx-3 mb-3 ">
                     <button className="btn btn-secondary btn-lg">Share Article Link</button>
                     </div>
-                    <button>Edit Article</button>
+                    {/* <button>Edit Article</button>
                     <select>
                         <option selected>Add to category</option>
                         <option>One</option>
                         <option>Two</option>
                         <option>Three</option>
-                    </select>
+                    </select> */}
                 </div>
             </div>
         </div>
