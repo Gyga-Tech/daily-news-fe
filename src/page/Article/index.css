@@ -5,9 +5,86 @@
     text-align: center;
 }
 
-@media only screen and (min-width: 576px) {
-    
+.nav-article {
+    display: flex;
+    justify-content: space-between;
 }
+
+.back-chevron {
+    display: flex;
+}
+
+.share-article {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.likendsave {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-article {
+    padding: 0px;
+    margin: auto;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.title h1 {
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 49px;
+}
+.content button {
+    height: 50px;
+    color: #fff;
+    border: none;
+    width: 70%;
+    margin: 20px auto;
+    outline: none;
+    text-align: center;
+    background: #0D253C;
+
+}
+.content select {
+    text-align: center;
+    height: 50px;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0 10px;
+    outline: none;
+    background: #EFF4FF;
+
+}
+.comment-wrap {
+    margin-top: 5em;
+}
+.art-content {
+    height: 100%;
+}
+.art-content p {
+    font-weight: 500;
+    line-height: 30px;
+}
+.comment {
+    margin-top: -5em;
+}
+
+.info p {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 6px 55px 3px 10px;
+}
+
+.info .icon {
+    font-size: 25px;
+}
+
+@media only screen and (min-width: 576px) {}
 
 .thumbnail {
     width: 595px;

@@ -1,16 +1,16 @@
-.header {
+.header-articles {
     background: url('../../assets/img/header-section1.png');
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
 }
 
-.header .title2 {
+.header-articles .title-header-articles {
     padding-top: 10em;
     padding-left: 5em;
 }
 
-.header .title2 h1 {
+.header-articles .title-header-articles h1 {
     font-family: 'Georgia';
     font-style: normal;
     font-weight: 700;
@@ -22,7 +22,7 @@
 
 }
 
-.header .title2 p {
+.header-articles .title-header-articles p {
     width: 40%;
     font-style: normal;
     font-weight: 400;
@@ -31,11 +31,13 @@
 
     color: #0D253C;
 }
-.header .title2 button {
+
+.header-articles .title-header-articles button {
     padding: 10px 30px;
 }
 
-.title2 {
+.title-header-articles {
+    position: absolute;
     content: '';
     display: block;
     bottom: 0;
