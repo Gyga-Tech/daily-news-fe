@@ -3,17 +3,21 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useQuill } from 'react-quilljs';
 import { useAddArticleMutation } from "../../features/article/articleSlice";
+import { useSelector } from "react-redux";
 import 'quill/dist/quill.snow.css';
 import "./PostArticle.css"
+import Auth from "../Auth";
 
 const PostArticle = () => {
     const { quill, quillRef } = useQuill();
     const [coverPreview, setCoverPreview] = useState(null)
     const [errorImg, setErrorImg] = useState(false)
     const formData = new FormData
-    const [formAddData, setFormAddData] = useState({})
+    const {userId} = useSelector(state=> state.auth)
+    const [formAddData, setFormAddData] = useState({
+        userID:userId
+    })
     const [addArticle, { isLoading, isError, isSuccess }] = useAddArticleMutation({})
-
     const handleImageChange = (event) => {
         const selected = event.target.files[0]
         const ALLOWED_TYPES = ["image/png", "image/jpg", "image/jpeg"]
@@ -33,6 +37,7 @@ const PostArticle = () => {
 
     // const [dataArticle, setDataArticle] = useState({})
 
+    formData.append('userID', formAddData.userID)
     formData.append('cover', formAddData.cover)
     formData.append('categories_id', formAddData.categories_id)
     formData.append('title', formAddData.title)
@@ -42,10 +47,10 @@ const PostArticle = () => {
     const handleAddNewArticle = (event) => {
         event.preventDefault()
         // let contentArticle = quill.getText()
-
+        
         console.log(quill.getText())
         
-   
+        console.log(formData)
         addArticle(formData)
 
         if (isError) {
@@ -63,7 +68,7 @@ const PostArticle = () => {
           });
         }
       }, [quill]);
-    
+
 
     return (<>
         <div className="section-post-article d-flex flex-column">
