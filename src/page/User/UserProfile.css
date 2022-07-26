@@ -1,0 +1,185 @@
+.userprofile {
+    margin-top: 6em;
+}
+
+.card-profile1 {
+    height: 90vh;
+    background: white;
+    box-shadow: 0px 1px 10px 1px gray;
+    position: relative;
+    justify-content: right;
+}
+
+.upper-container {
+    height: 100px;
+    background: linear-gradient(to left, #8e00b9, #f64A8A);
+}
+
+.image-container1 {
+    display: flex;
+    justify-content: center;
+}
+
+.img-profile1 {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.img-profile1 img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: 5px;
+}
+
+.image-profile2 {
+    background: white;
+    width: 100%;
+    background: yellow;
+    height: 100px;
+    margin-top: 50px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.image-profile2 img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+.lower-container {
+    margin-top: 60px;
+    height: 300px;
+    background: white;
+    text-align: center;
+}
+
+.sidebar-wrap {
+    background: #f64A8A;
+    width: 90%;
+    box-shadow: 0px 1px 10px 1px gray;
+}
+
+.sidebar-card {
+    background: yellowgreen;
+    height: 264px;
+}
+
+.this-logout-btn {
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+    color: #FFF;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.this-logout-btn span {
+    transition: all 0.3s;
+}
+
+.this-logout-btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+    transform: scale(0.1, 1);
+}
+
+.this-logout-btn:hover span {
+    letter-spacing: 2px;
+}
+
+.this-logout-btn:hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.this-logout-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.this-logout-btn:hover::after {
+    opacity: 0;
+    transform: scale(0.1, 1);
+}
+.data-user {
+    margin-top: 4em;
+}
+
+.data-left label {
+    font-weight: 600;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.data-left input {
+    border: 1px solid lightgray;
+    outline: none;
+    border-radius: 5px;
+    width: 300px;
+    font-size: 13px;
+    padding: 5px 10px;
+    letter-spacing: 0.5px;
+}
+.data-left textarea {
+    width: 100%;
+    height: 70px;
+    outline: none;
+    padding: 10px;
+    border: 1px solid lightgray;
+    font-size: 13px;
+}
+
+.data-right input {
+    border: 1px solid lightgray;
+    outline: none;
+    border-radius: 5px;
+    width: 300px;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    padding: 5px 10px;
+}
+
+.data-right label {
+    font-weight: 600;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.btn-submit {
+    display: flex;
+    margin: 10px 0;
+    flex-direction: column;
+}
+
+.btn-submit input {
+    margin: 20px 0;
+    padding: 10px 0;
+}
