@@ -2,8 +2,19 @@ import Card from './Card'
 import { Link } from "react-router-dom";
 import './ContentArticles.css'
 import { useGetArticleQuery } from '../../features/article/articleSlice';
+import { useState } from 'react';
 
 const Content = () => {
+    const [sortArticles, setSortArticles] = useState ({limit:12})
+    const {
+        data: article,
+        isLoading,
+        isSuccess,
+        isError,
+        error,
+        refetch
+    } = useGetArticleQuery(sortArticles)
+
     return (
         <div>
             <div className='p-5'>
@@ -12,9 +23,9 @@ const Content = () => {
                         Sort Here
                     </button>
                     <ul class="dropdown-menu menu-filter">
-                        <li><a class="dropdown-item" href="#">Category</a></li>
-                        <li><a class="dropdown-item" href="#">Last Added</a></li>
-                        <li><a class="dropdown-item" href="#">Last Modified</a></li>    
+                        <li><a class="dropdown-item" onClick={()=>{setSortArticles(prevState=> ({...prevState, sortby: "categories_id"})); refetch()}}>Category</a></li>
+                        <li><a class="dropdown-item" onClick={()=>setSortArticles(prevState=> ({...prevState, sortby: "created_at"}))}>Last Added</a></li>
+                        <li><a class="dropdown-item" onClick={()=>setSortArticles(prevState=> ({...prevState, sortby: "updated_at"}))}>Last Modified</a></li>    
                     </ul>
                 </div>
                
@@ -26,7 +37,7 @@ const Content = () => {
                     {array.map(()=><Card />)}
                 </div> */}
 
-                <RowEconomy />
+                <RowEconomy sortby={sortArticles.sortby}/>
                 <RowPolitics />
                 <RowCountry />
                 <RowHealth />
@@ -36,14 +47,15 @@ const Content = () => {
     )
 }
 
-const RowEconomy = () => {
+const RowEconomy = (props) => {
+    const {sortby} = props
     const {
         data: article,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetArticleQuery({categories: 1, limit: 4})
+    } = useGetArticleQuery({sortby: sortby, categories: 1, limit: 4})
 
     let render
     if(isLoading) {
@@ -65,14 +77,15 @@ const RowEconomy = () => {
     </>)
 }
 
-const RowPolitics = () => {
+const RowPolitics = (props) => {
+    const {sortby} = props
     const {
         data: article,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetArticleQuery({categories: 2, limit: 4})
+    } = useGetArticleQuery({sortby: sortby, categories: 2, limit: 4})
 
     let render
     if(isLoading) {
@@ -94,14 +107,15 @@ const RowPolitics = () => {
     </>)
 }
 
-const RowCountry = () => {
+const RowCountry = (props) => {
+    const {sortby} = props
     const {
         data: article,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetArticleQuery({categories: 3, limit: 4})
+    } = useGetArticleQuery({sortby: sortby, categories: 3, limit: 4})
 
     let render
     if(isLoading) {
@@ -123,14 +137,15 @@ const RowCountry = () => {
     </>)
 }
 
-const RowHealth = () => {
+const RowHealth = (props) => {
+    const {sortby} = props
     const {
         data: article,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetArticleQuery({categories: 4, limit: 4})
+    } = useGetArticleQuery({sortby: sortby, categories: 4, limit: 4})
 
     let render
     if(isLoading) {
@@ -152,14 +167,15 @@ const RowHealth = () => {
     </>)
 }
 
-const RowBeauty = () => {
+const RowBeauty = (props) => {
+    const {sortby} = props
     const {
         data: article,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetArticleQuery({categories: 5, limit: 4})
+    } = useGetArticleQuery({sortby: sortby, categories: 5, limit: 4})
 
     let render
     if(isLoading) {
