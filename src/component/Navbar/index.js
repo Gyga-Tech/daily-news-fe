@@ -1,14 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+// import notif from "../../assets/img/Notif.svg"
 // import human from "../../assets/img/human.svg"
+import { logout } from "../../features/auth/authSlice";
 import "./index.css"
 
 const Navbar = () => {
-   const {userId} = useSelector((state) => state.auth)
-   console.log(userId)
+  const dispatch = useDispatch()
+  const {userId} = useSelector((state) => state.auth)
+  console.log(userId)
+
 
     return(
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg bg-light sticky-top">
         <div className="container-fluid d-flex justify-content-around px-5">
             <Link to="/" className="navbar-brand font-xl bold " href="#">Daily-News</Link>
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,9 +40,11 @@ const Navbar = () => {
                 <div className="h">
                 <img src="" alt="notif" />
                 </div>
-                  
-                <Link to="/users"><img src="" alt="human" /></Link>  </>) : (<><Link to="/authentication/signup" className="nav-link m-3 font-m bold">Sign Up</Link>
-                <Link to="/authentication/signin" ><button className="btn btn-primary m-3 font-m" type="submit">Sign In</button></Link></>)
+                <button className="btn btn-danger" onClick={()=>{
+                  dispatch(logout())
+                }}>Logout</button> </>) : (<><Link to="/authentication/signup" className="nav-link m-3 font-m bold">Sign Up</Link>
+                <Link to="/authentication/signin" ><button className="btn btn-primary m-3 font-m" type="submit">Sign In</button></Link></>
+                )
                 }
                  
                 
@@ -49,6 +55,7 @@ const Navbar = () => {
   );
 };
 
+                /* <Link to="/users"><img src="" alt="human" /></Link>  </>)  */
 
 export default Navbar
 

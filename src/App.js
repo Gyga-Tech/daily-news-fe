@@ -17,6 +17,8 @@ import CategoryAdmin from './dashboard/CategoryAdmin';
 import AdminArticle from './dashboard/ArticleAdmin';
 
 import WaitingList from './dashboard/WaitingList';
+import AlreadySignIn from './page/Auth/AlreadySignIn.js';
+import VerifyAuth from './page/Auth/VerifyAuth/VerifyAuth';
 
 
 
@@ -24,11 +26,17 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+
+      {/* can't access after login */}
       <Route path="/" element={<Home />} />
-      <Route path="/authentication" element={<Auth/>}>
+      <Route path='/' element={<AlreadySignIn />}>
+      <Route path="authentication" element={<Auth/>}>
         <Route path='signup' element={<SignUp/>}/>
         <Route path='signin' element={<SignIn/>}/>
       </Route>
+      </Route>
+  
+      {/* public Route */}
       <Route path="/category" element={<Category/>} />
       <Route path="/articles" element={<Articles />} />
       <Route path="/article" element={<Article />} />
@@ -41,12 +49,18 @@ function App() {
       </Route>
       <Route path="/notification" element={<Notification />} />
       <Route path="/forgot" element={<Forgot />} />
-      <Route path="/addarticles" element={<AddArticles/>}/>
+
+      {/* protected route */}
       <Route path="/search" element={<Search/>}/>
-      <Route path='/dashboard/admin-category' element={<CategoryAdmin/>}/>
-      <Route path='/dashboard/admin-article' element={<AdminArticle/>} />
-      <Route path="/dashboard/article-pending" element={<WaitingList/>} />
-      <Route path="/user" element={<User />} />
+      <Route path='/' element={<VerifyAuth/>}>
+        <Route path='dashboard/admin-category' element={<CategoryAdmin/>}/>
+        <Route path='dashboard/admin-article' element={<AdminArticle/>} />
+        <Route path="dashboard/article-pending" element={<WaitingList/>} />
+        <Route path="user" element={<User />} />
+        <Route path="addarticles" element={<AddArticles/>}/>
+
+      </Route>
+      
       <Route />
     </Routes>
     </BrowserRouter>

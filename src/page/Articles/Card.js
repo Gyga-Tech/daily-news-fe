@@ -10,7 +10,7 @@ const CardArticles = (props) => {
             
             <div className="card card-articles">
                 <div className="inner-img">
-                    <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} className="card-img-top" alt="..." />
+                    <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} className="card-img-top img-articles" alt="..." />
                 </div>
                     <div className="card-body">
                         <h5 className="card-title text-center">{item.title}</h5>
