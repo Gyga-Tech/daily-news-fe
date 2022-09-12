@@ -20,6 +20,7 @@ import WaitingList from './dashboard/WaitingList'
 import Dashboard from './dashboard/dashboard'
 import AlreadySignIn from './page/Auth/AlreadySignIn.js'
 import VerifyAuth from './page/Auth/VerifyAuth/VerifyAuth'
+import VerifyAdmin from './page/Auth/VerifyAdmin'
 
 function App() {
   return (
@@ -50,14 +51,18 @@ function App() {
 
         {/* protected route */}
         <Route path="/search" element={<Search />} />
-        <Route path="/" element={<VerifyAuth />}>
-          <Route path="dashboard/admin-category" element={<CategoryAdmin />} />
-          <Route path="dashboard/admin-article" element={<AdminArticle />} />
-          <Route path="dashboard/article-pending" element={<WaitingList />} />
+        <Route path="/" element={<VerifyAuth />}>  
           <Route path="user" element={<User />} />
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="addarticles" element={<AddArticles />} />
         </Route>
+
+        <Route path="/" element={<VerifyAdmin />}>
+          <Route path="dashboard/admin-category" element={<CategoryAdmin />} />
+          <Route path="dashboard/admin-article" element={<AdminArticle />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="dashboard/article-pending" element={<WaitingList />} />
+        </Route>
+        
 
         <Route />
       </Routes>

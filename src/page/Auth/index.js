@@ -1,7 +1,11 @@
 import "./index.css"
-import {Link, Outlet} from "react-router-dom"
+import {Link, Outlet, useLocation, useNavigate, useRoutes} from "react-router-dom"
 
 const Auth = () => {
+    const navigate = useNavigate()
+    const location = useLocation()
+    // const route = useRoutes()
+
 
     return(
         <div className="container-fluid">
@@ -19,7 +23,11 @@ const Auth = () => {
                                                 <p className="p1">Already have an account?</p>
                                             <div className="garis ms-3"></div>
                                         </div>                               
-                                        <button className="btn btn-secondary btn-lg mb-5 btn-login">Login Here</button>                              
+                                        <button 
+                                        className="btn btn-secondary btn-lg mb-5 px-3 py-2 rounded-2 shadow bold"
+                                        onClick={() => location.pathname === '/authentication/signup' ? 
+                                        navigate('/authentication/signin') : navigate('/authentication/signup') }
+                                        >{location.pathname === '/authentication/signin' ? 'Sign Up' : 'Sign In'} Here</button>                              
                                     </div>
                                     <div className=" row font-l color-white align-self-center">
                                         <div className="col ">

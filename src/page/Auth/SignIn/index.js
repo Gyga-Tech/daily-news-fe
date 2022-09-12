@@ -4,7 +4,7 @@ import google from "../../../assets/img/Google.svg"
 import twitter from "../../../assets/img/Twitter.svg"
 import { useEffect, useRef, useState } from "react"
 import { useSigninMutation } from "../../../features/auth/authApiSlice"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import {useNavigate} from "react-router-dom"
 import { setCredentials } from "../../../features/auth/authSlice"
 
@@ -16,6 +16,7 @@ const SignIn = ()=>{
     const [errMsg, setErrMsg] = useState()
     const userRef = useRef()
     const navigate = useNavigate()
+    const {role} = useSelector(state =>  state.auth)
 
     const [
         signin,
@@ -26,6 +27,14 @@ const SignIn = ()=>{
     useEffect(() => {
         userRef?.current?.focus()
     },[])
+
+    if(role) {
+        console.log(role)
+        // role === "admin" ?
+        // navigate("/dashboard", {replace: true} ) :
+        // navigate("/", {replace: true} )
+
+    }
 
     useEffect(()=> {
         setErrMsg("")
@@ -40,13 +49,12 @@ const SignIn = ()=>{
             dispatch(setCredentials(result.data))
             setEmail("")
             setPwd("")
-            navigate("/", {replace: true} )
             
         } catch(err) {
-           if(err.originalStatus === 400) {
+           if(err.status === 400) {
                 setErrMsg("email/password is wrong")
                 alert(errMsg)
-            } else if (err.originalStatus === 401) {
+            } else if (err.status === 401) {
                 setErrMsg("unauthorized")
             } else {
                 setErrMsg("sign in failed")

@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useGetArticleIdQuery, useGetArticleQuery} from "../../features/article/articleSlice";
 import { Link } from "react-router-dom";
+import moment from "moment/moment";
+
 
 const Section2 = () => {
     let params = useParams() 
-
     const {
         data: article,
         isLoading,
@@ -37,18 +38,24 @@ const Section2 = () => {
 }
 
 const Render = (props) => {
-
     const {item} = props
-    console.log(item.cover)
+
+    const extractContent = (content) => {
+        const span = document.createElement('span')
+        span.innerHTML = content
+        return span.textContent || span.innerHTML
+    }
+
+    const content = extractContent(item.content).substring(0,50)
     return(
         <Link to={`/article/${item.article_id}`}  style={{color: "#0D253C", textDecoration: "none"}} >
-            <div class="card me-3 mb-3" style={{width: '16rem', height: "23rem" }}>
+            <div className="card me-3 mb-3 shadow-lg" style={{width: '16rem', height: "23rem" }}>
              <div style={{height: "13rem", overflow: "hidden"}}>
-                <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} class="card-img-top" alt={item.title}/>
+                <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} className="card-img-top" alt={item.title}/>
              </div>
-            <div class="card-body p-2">
-                <h5 class="card-title text-center bold ">{item.title.substring(0,40)}...</h5>
-                <p class="card-text">{item.content.substring(0,50)}...</p>
+            <div className="card-body p-2">
+                <h5 className="card-title text-center bold " >{item.title.substring(0,40)}...</h5>
+                <p className="card-text" >{content?.length < 50 ? content : `${content}...`}</p>
                
             </div>
             <div className="card-footer">
@@ -59,7 +66,7 @@ const Render = (props) => {
                 </div>
                 <div className="d-flex">
                 <i className="bi bi-clock me-1"></i>
-                    <p className="font-s mb-1">3m ago</p>
+                    <p className="font-s mb-1">{moment(item.updated_at).startOf('day').fromNow()}</p>
                 </div>
                 <i class="bi bi-bookmark"></i>
                 </div>

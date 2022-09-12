@@ -2,6 +2,7 @@ import { useParams, useSearchParams } from "react-router-dom"
 import { useGetArticleIdQuery } from "../../features/article/articleSlice"
 import asian1 from '../../assets/img/ASEAN1.png'
 import "./index.css"
+import moment from "moment"
 
 const Header = () => {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -62,7 +63,7 @@ const Render = (props) => {
                     </div>
                     <div className="d-flex flex-column my-3">
                         <p className="font-s">Richard Gervain - Author</p>
-                        <h4 className="font-xs ">{item.created_at}</h4>
+                        <h4 className="font-xs ">{moment(item.updated_at).format('MMMM DD YYYY') }</h4>
                     </div>
                     <div className="d-flex info">
                         <i className="bi bi-hand-thumbs-up icon"></i>

@@ -12,18 +12,23 @@ const SignUp = () => {
     const navigate = useNavigate()
     const [addRegister, { isLoading, isError, isSuccess, error }] = useRegisterMutation()
     const [formRegister, setFormRegister] = useState({
-        userName:'', name:'', email:'', password:'', phoneNumber:'' 
+        username:'', name:'', email:'', password:'', phoneNumber:'' 
       })
+    const [errMsg, setErrMsg] = useState('')
     
-    const handleSignup = (event) => {
+    const handleSignup = async (event) => {
         event.preventDefault()
-        addRegister(formRegister)
-        if(isError){
-            alert("email udah terdaftar bro")
-        }
-        alert("Register Successfully")
-        navigate("/authentication/signin", {replace:true})
+        try {
+            await addRegister(formRegister).unwrap()
+            setErrMsg('')
+            navigate("/authentication/signin", {replace:true})
 
+        } catch(err) {
+            if(err.status === 400) {
+                setErrMsg('maaf email sudah ada')
+            }
+        }
+        
     }
     
     return (
@@ -64,7 +69,7 @@ const SignUp = () => {
                             <label for="Username" className="form-label">Username :</label>
                             <input type={'userName'} className="form-control imput" id="username" placeholder="Enter your username" onChange={(event) => setFormRegister((prevData) => ({
                                 ...prevData,
-                                userName: event.target.value
+                                username: event.target.value
                             }))} required  />
                         </div>
                         <div className="mb-3">
@@ -74,7 +79,7 @@ const SignUp = () => {
                                 name: event.target.value
                             }))} required  />
                         </div>
-                        
+                        {errMsg && <div className="font-m p-3 color-white mb-3 bold rounded-2 bg-danger">{errMsg}</div>}
                         <div className="submit">
                         
                             {isLoading ? (
