@@ -1,0 +1,52 @@
+.coverPrev{
+    width: 170px;
+    height: 262px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #376AED4D;
+    border-radius: 5px;
+}
+
+.coverPrev input[type="file"]{
+    display: none;
+}
+
+.coverPrev .customFileUpload{
+    margin-top: 20rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 200;
+    cursor: pointer;
+    background-color: #0D253C;
+    border-radius: 5px;
+}
+
+.coverPrev .customFileUpload:hover{
+    background-color: #163a5c;
+}
+
+/* .action-upload{
+    margin-top: 9.1rem;
+    margin-left: 0.72rem;
+} */
+
+.coverPrev label{
+    width: 170px;
+    line-height:2.4em;
+}
+
+/* .tbody tr td{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+
+} */
+

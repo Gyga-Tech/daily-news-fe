@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useGetArticleQuery } from "../../features/article/articleSlice";
 import { Link } from "react-router-dom";
+import moment from 'moment'
 
 const Loading = () => {
     return <div>Loading....</div>
@@ -10,7 +11,7 @@ const Loading = () => {
 //SEARCH
 const Search = () => {
     const [query, setQuery] = useState("")
-    const [sort, setSort] = useState({limit:12})
+    const [sort, setSort] = useState({ limit: 12 })
     const {
         data: article,
         isLoading,
@@ -23,7 +24,6 @@ const Search = () => {
         <div className="section-search d-flex flex-column bg-white">
             <div className="search-header d-flex flex-row justify-content-between" style={{ marginTop: "5rem" }}>
                 <div className="search-title">
-                    {/* <i className="bi bi-search mx-3"><input className="mx-2" type="search" placeholder="type here" style={{ border: "none", outline: "none" }}></input></i> */}
                     <div className="input-group flex-nowrap" style={{ marginLeft: "5rem" }}>
                         <span className="input-group-text bi bi-search" id="addon-wrapping"></span>
                         <input type="text" class="form-control" placeholder="type here" aria-label="Username" aria-describedby="addon-wrapping" onChange={event => setQuery(event.target.value)} />
@@ -36,10 +36,10 @@ const Search = () => {
                         </button>
                         <ul className="dropdown-menu dropdown-menu-end">
                             <li><a className="dropdown-item" >Name (A-Z) </a></li>
-                            <li><a className="dropdown-item" onClick={()=>setSort(prevState=> ({...prevState, sortby: "title"}))}>Name (Z-A) </a></li>
-                            <li><a className="dropdown-item" onClick={()=>setSort(prevState=> ({...prevState, sortby: "categories_id"}))}>Category</a></li>
-                            <li><a className="dropdown-item" onClick={()=>setSort(prevState=> ({...prevState, sortby: "created_at"}))}>Last Added</a></li>
-                            <li><a className="dropdown-item" onClick={()=>setSort(prevState=> ({...prevState, sortby: "updated_at"}))}>Last Modified</a></li>                            
+                            <li><a className="dropdown-item" onClick={() => setSort(prevState => ({ ...prevState, sortby: "title" }))}>Name (Z-A) </a></li>
+                            <li><a className="dropdown-item" onClick={() => setSort(prevState => ({ ...prevState, sortby: "categories_id" }))}>Category</a></li>
+                            <li><a className="dropdown-item" onClick={() => setSort(prevState => ({ ...prevState, sortby: "created_at" }))}>Last Added</a></li>
+                            <li><a className="dropdown-item" onClick={() => setSort(prevState => ({ ...prevState, sortby: "updated_at" }))}>Last Modified</a></li>
                         </ul>
                     </div>
                 </div>
@@ -66,32 +66,32 @@ const Search = () => {
                     }
                 }).map((item, index) => {
                     return (
-                        <Link to={`/article/${item.categories_id}`} style={{textDecoration:"none", color:"#0D253C"}}>
-                        <div className="card-article-list d-flex flex-column mx-3 shadow-lg mb-5 bg-body rounded text-center" style={{ width: "260px", height: "293px" }}>
-                            <div className="header-content d-flex" key={index}>
-                                <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} alt={item.title} title={item.title} style={{ width: "260px", height: "146px" }} />
-                            </div>
-                            <div className="title-content mt-3">
-                                <h6 style={{ fontWeight: "bold" }}>{item.title.substring(0,20)}</h6>
-                            </div>
-                            <div className="fill-content">
-                                <p>{item?.content?.substring(0, 50)}...</p>
-                                <hr />
-                            </div>
-                            <div className="properties d-flex flex-row justify-content-between" style={{ fontSize: "0.8rem" }}>
-                                <div className="like d-flex flex-row mx-3">
-                                    <i class="bi bi-hand-thumbs-up"></i>
-                                    <p className="mx-1">2.1k</p>
+                        <Link to={`/article/${item.categories_id}`} style={{ textDecoration: "none", color: "#0D253C" }}>
+                            <div className="card-article-list d-flex flex-column mx-3 shadow-lg mb-5 bg-body rounded text-center" style={{ width: "260px", height: "293px" }}>
+                                <div className="header-content d-flex" key={index}>
+                                    <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} alt={item.title} title={item.title} style={{ width: "260px", height: "146px" }} />
                                 </div>
-                                <div className="time d-flex flex-row mx-3">
-                                    <i className="bi bi-clock"></i>
-                                    <p className="mx-1">{item?.created_at}</p>
+                                <div className="title-content mt-3">
+                                    <h6 style={{ fontWeight: "bold" }}>{item.title.substring(0, 20)}</h6>
                                 </div>
-                                <div className="tagged d-flex flex-row mx-3">
-                                    <i className="bi bi-tag"></i>
+                                <div className="fill-content">
+                                    <p>{item?.content?.substring(0, 50)}...</p>
+                                    <hr />
+                                </div>
+                                <div className="properties d-flex flex-row justify-content-between" style={{ fontSize: "0.8rem" }}>
+                                    <div className="like d-flex flex-row mx-3">
+                                        <i class="bi bi-hand-thumbs-up"></i>
+                                        <p className="mx-1">2.1k</p>
+                                    </div>
+                                    <div className="time d-flex flex-row mx-3">
+                                        <i className="bi bi-clock"></i>
+                                        <p className="mx-1">{moment(`${item?.created_at}`).startOf('minutes').fromNow()}</p>
+                                    </div>
+                                    <div className="tagged d-flex flex-row mx-3">
+                                        <i className="bi bi-tag"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </Link>
                     )
                 })}

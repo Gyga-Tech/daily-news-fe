@@ -3,19 +3,24 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useQuill } from 'react-quilljs';
 import { useAddArticleMutation } from "../../features/article/articleSlice";
+import { useGetCategoriesQuery } from "../../features/categories/categoriesSlice";
 import { useSelector } from "react-redux";
 import 'quill/dist/quill.snow.css';
 import "./PostArticle.css"
 import Auth from "../Auth";
+
+const Loading = () => {
+    <>Loading...</>
+}
 
 const PostArticle = () => {
     const { quill, quillRef } = useQuill();
     const [coverPreview, setCoverPreview] = useState(null)
     const [errorImg, setErrorImg] = useState(false)
     const formData = new FormData
-    const {userId} = useSelector(state=> state.auth)
+    const { userId } = useSelector(state => state.auth)
     const [formAddData, setFormAddData] = useState({
-        userID:userId
+        userID: userId
     })
     const [addArticle, { isLoading, isError, isSuccess }] = useAddArticleMutation({})
     const handleImageChange = (event) => {
@@ -35,7 +40,13 @@ const PostArticle = () => {
         }
     }
 
-    // const [dataArticle, setDataArticle] = useState({})
+    const {
+        data: categories,
+        isLoading: getIsLoading,
+        isSuccess: getIsSuccess,
+        isError: getIsError,
+        error
+    } = useGetCategoriesQuery({})
 
     formData.append('userID', formAddData.userID)
     formData.append('cover', formAddData.cover)
@@ -44,31 +55,30 @@ const PostArticle = () => {
     formData.append('content', formAddData.content)
 
     console.log(useAddArticleMutation(), "INI ADD")
-    const handleAddNewArticle = (event) => {
-        event.preventDefault()
-        // let contentArticle = quill.getText()
-        
-        console.log(quill.getText())
-        
-        console.log(formData)
-        addArticle(formData)
-
-        if (isError) {
-            alert("error")
-        } if (isSuccess) {
-            alert("Article has been added")
-        }
-
-    }
-
     useEffect(() => {
         if (quill) {
-          quill.on('text-change', (delta, oldDelta, source) => {
-              setFormAddData((prevData) => ({ ...prevData, content: quill.getText()}))
-          });
+            quill.on('text-change', (delta, oldDelta, source) => {
+                setFormAddData((prevData) => ({ ...prevData, content: quill.root.innerHTML }))
+            });
         }
-      }, [quill]);
+    }, [quill]);
 
+    const [refetch, setRefetch] = useState(false)
+    const handleAddNewArticle = (event) => {
+        event.preventDefault()
+
+        addArticle(formData)
+
+        alert("Article has been added")
+        setRefetch(refetch)
+        // if (isError) {
+        //     alert("error")
+        // } if (isSuccess) {
+        //     alert("Article has been added")
+        // }
+
+
+    }
 
     return (<>
         <div className="section-post-article d-flex flex-column">
@@ -99,7 +109,6 @@ const PostArticle = () => {
                                 </div>
                                 <div className="action-upload">
                                     {coverPreview && <button className="btn btn-secondary btn-block" style={{ width: "250px" }} onClick={() => setCoverPreview(null)}>Remove Cover</button>}
-                                    {/* <button type="reset" value="Reset" className="btn btn-secondary btn-block" style={{ width: "250px" }}>Change Cover</button> */}
                                 </div>
                             </div>
                             <div className="right-side d-flex flex-column mx-2">
@@ -113,12 +122,11 @@ const PostArticle = () => {
                                         <select className="form-select" aria-label="Default select example" onChange={(event) => setFormAddData((prevData) => ({
                                             ...prevData, categories_id: event.target.value
                                         }))}>
-
-                                            <option selected="1">Economy</option>
-                                            <option value="2">Politic</option>
-                                            <option value="3">Country</option>
-                                            <option value="4">Health</option>
-                                            <option value="5">Beauty</option>
+                                            {getIsLoading ? (<Loading />) : categories.data.map((item, index) => {
+                                                return (<>
+                                                    <option value={item.categories_id}>{item.categories_name}</option>
+                                                </>)
+                                            })}
                                         </select>
                                     </div>
                                 </div>
@@ -135,14 +143,13 @@ const PostArticle = () => {
                                 <div className="action d-flex flex-row justify-content-between mx-2 mt-5">
                                     {isLoading ? <button type="submit" className="btn btn-primary btn-block" disabled style={{ width: "100%" }}>Request Publish Article</button>
                                         : <button type="submit" className="btn btn-primary btn-block" onClick={handleAddNewArticle} style={{ width: "100%" }}>Request Publish Article</button>}
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
-        </div>
+        </div >
     </>)
 }
 

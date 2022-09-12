@@ -1,6 +1,10 @@
+
 .card-category-list{
-    width: 204px;
-    height: 222px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 170px;
+    height: 200px;
     box-shadow: 0 2px 9px 0 rgba(0, 0, 0, .25), 0 3px 10px 5px rgba(0, 0, 0, 0.05) !important;
 }
 
@@ -9,12 +13,46 @@
 }
 
 .card-category-list img{
-    width: 204px;
-    height: 222px;
+    width: 170px;
+    height: 200px;
     object-fit: cover;
 }
 
 .cover img{
     object-fit: cover;
+}
+
+.recommended{
+    margin: 3em 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card-recommended{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.content-title{
+    display: flex;
+    margin-left: 5em;
+
+}
+
+.content-fill{
+    display: flex;
+    margin-left: 5em;
+
+    height: 100px;
+}
+
+.properties{
+    display: flex;
+
+    justify-content: center;
+    column-gap: 20px;
+    margin-top: .6em;
 }
 

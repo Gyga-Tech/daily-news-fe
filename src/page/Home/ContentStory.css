@@ -1,6 +1,7 @@
 .section-story{
     background-color: #D7DDEC;
-    height: 70vh;
+    height: 50vh;
+    /* margin-top: 35em; */
 }
 
 .card-left .title h3{
@@ -9,6 +10,6 @@
 }
 
 .card-left{
-    margin-left: 10rem;
+
     margin-top: 5rem;
 }
