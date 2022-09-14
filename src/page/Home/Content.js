@@ -3,6 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useGetArticleQuery } from '../../features/article/articleSlice'
+import { useGetCategoriesQuery } from '../../features/categories/categoriesSlice'
 import moment from 'moment'
 import parse from 'html-react-parser'
 import Slider from 'react-slick'
@@ -20,6 +21,14 @@ const Content = () => {
     isError,
     error,
   } = useGetArticleQuery({})
+  const {
+    data: categories,
+    isLoading: getLoading,
+    isSuccess: getSuccess,
+    isError: getError,
+    error: errosMsg,
+  } = useGetCategoriesQuery({})
+  console.log(categories, 'kategory')
 
   const config = {
     dots: false,
@@ -66,8 +75,8 @@ const Content = () => {
     infinite: true,
     speed: 1500,
     autoplay: false,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 5,
+    slidesToScroll: 5,
     responsive: [
       {
         breakpoint: 991,
@@ -140,7 +149,7 @@ const Content = () => {
               {isLoading ? (
                 <Loading />
               ) : (
-                article?.data?.results?.map((item, index) => {
+                categories?.data?.map((item, index) => {
                   return (
                     <>
                       <Link
@@ -200,8 +209,6 @@ const Content = () => {
                               <h6>{item.title.slice(0, 20)}</h6>
                               <p>{parse(`${item.content.slice(0, 50)}`)}</p>
                             </div>
-                            {/* <div className="content-fill">
-                            </div> */}
                             <div
                               className="properties"
                               style={{ fontSize: '0.9rem' }}
