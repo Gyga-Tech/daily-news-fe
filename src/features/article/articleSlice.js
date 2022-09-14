@@ -8,9 +8,10 @@ export const articleSlice = apiSlice.injectEndpoints({
                 limit = "5",
                 order = "desc",
                 page = "1",
+                search = ''
             }) => `/articles?${categories ? "categories="
                 + categories + "&sortby=" + sortby :
-                "sortby=" + sortby}&limit=${limit}&page=${page}&order=${order}`
+                "sortby=" + sortby}&search=${search}&limit=${limit}&page=${page}&order=${order}`
         }),
         getArticleId: builder.query({
             query: (id) => `/articles/${id}`

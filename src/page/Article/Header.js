@@ -39,8 +39,8 @@ const Render = (props) => {
     return(<>
         <div className="row m-5 nav-article">
             <div className="col-2 back-chevron">
-                <i class="bi bi-chevron-left"></i>
-                <h4 className="font-s bold">Back</h4>
+                <i class="bi bi-chevron-left fw-bold me-2 "></i>
+                <h4 className="font-s bold ">Back</h4>
             </div>
             <div className="col-md-8 d-flex justify-content-center">
                 <h3 className="font-l">Article View</h3>

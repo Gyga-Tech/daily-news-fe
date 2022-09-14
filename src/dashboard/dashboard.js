@@ -4,6 +4,8 @@ import { useAddCategoriesMutation, useDeleteCategoriesIdMutation, useUpdateCateg
 import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./dashboard.css"
+import Navbar from "../component/Navbar";
+import Footer from "../component/Footer";
 
 const Loading = () => {
     return <div>Loading....</div>
@@ -77,6 +79,7 @@ const Dashboard = () => {
     }
 
     return (<>
+    <Navbar />
         <div className="container my-5">
             <div className="row">
                 <div className="col">
@@ -169,6 +172,7 @@ const Dashboard = () => {
             <br />
             <br />
         </div>
+        <Footer />
     </>)
 }
 
