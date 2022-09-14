@@ -5,21 +5,28 @@
 }
 .container-auth{
     height: 100vh;
+    bottom: 0;
 }
 .p1{
     margin: 0;
     color: white;
 }
-/* .btn-login{
 
-    width: 300px!important;
-    height: 75px!important;
-} */
-
-/* .c1{
-    padding-right:  80px;
+.link-home:hover{
+    color: #fff;
 }
-.c2{
-    padding-left: 90px;
-} */
 
+.button-action{
+    width: 90%;
+}
+ .button-action:hover{
+    background-color: #17324b;
+ }
+
+ /* .button-action:active{
+    background-color: #17324b;
+ } */
+
+ .button-action:focus{
+    background-color: #17324b;
+ }

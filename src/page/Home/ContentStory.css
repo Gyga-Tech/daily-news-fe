@@ -1,7 +1,9 @@
 .section-story{
     background-color: #D7DDEC;
-    height: 50vh;
+    /* height: 100vh; */
     /* margin-top: 35em; */
+    display: flex;
+    align-items: center;
 }
 
 .card-left .title h3{
@@ -9,7 +11,12 @@
     font-weight: 700;
 }
 
+
 .card-left{
 
-    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+    margin-left: 5rem;
+    
 }

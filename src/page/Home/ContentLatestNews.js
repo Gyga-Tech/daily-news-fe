@@ -34,32 +34,32 @@ const ContentLatestNews = () => {
               return (
                 <>
                   <div
-                    className="card-latest-news-list d-flex flex-row shadow-lg mb-5 bg-white rounded"
-                    style={{ width: '100%', height: '202px' }}
+                    className="card-latest-news-list"
+                    style={{
+                      width: '100%',
+                      height: '250px',
+                    }}
                   >
-                    <div className="cover col-2" key={index}>
+                    <div className="cover col-md-2" key={index}>
                       <img
                         src={`https://gyga-news.herokuapp.com/public/${item.cover}`}
-                        alt="covid"
-                        title="covid"
-                        style={{ width: '126px', height: '202px' }}
                       ></img>
                     </div>
-                    <div className="content col-8 d-flex flex-column mx-3">
-                      <div className="content-title text-primary mt-3">
+                    <div className="content col-md-8">
+                      <div className="content-title">
                         <h6>{item.title.slice(0, 100)}</h6>
                       </div>
                       <div className="content-fill">
-                        <p style={{ width: '100%' }}>
+                        <p style={{ width: '100%', height: '150px' }}>
                           {parse(`${item.content.slice(0, 150)}`)}
                         </p>
                       </div>
-                      <div className="properties d-flex flex-row">
-                        <div className="like d-flex flex-row">
+                      <div className="properties-info">
+                        <div className="like">
                           <i class="bi bi-hand-thumbs-up mx-2"></i>
                           <p className="mx-2">2.1k</p>
                         </div>
-                        <div className="time d-flex flex-row mx-2">
+                        <div className="time">
                           <i className="bi bi-clock"></i>
                           <p className="mx-2">
                             {moment(`${item?.created_at}`)
@@ -67,18 +67,17 @@ const ContentLatestNews = () => {
                               .fromNow()}
                           </p>
                         </div>
-                        <div className="tagged d-flex flex-row mx-2">
+                        <div className="tagged">
                           <i className="bi bi-tag"></i>
                         </div>
                       </div>
                     </div>
-                    <div className="read-now col-2 d-flex flex-row">
+                    <div className="read-now col-md-2">
                       <Link
                         to={`/article/${item.article_id}`}
                         style={{
                           textDecoration: 'none',
                           color: '#0D253C',
-                          marginTop: '5rem',
                         }}
                       >
                         <button className="btn btn-primary">Read now</button>

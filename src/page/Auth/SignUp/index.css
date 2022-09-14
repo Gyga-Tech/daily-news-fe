@@ -1,6 +1,11 @@
 .container-signup{
     height: 100vh;
-    
+    bottom: 0;
+    overflow: auto;
+}
+
+.title{
+    margin-top: 10rem;
 }
 /* .imput{
     width: 505px;
@@ -8,10 +13,10 @@
 } */
 
 
- .lp{
+ /* .lp{
     padding-top: 5px;
     display: flex;    
-}
+} */
 
 /* .lp1{
     padding-left: 35px;

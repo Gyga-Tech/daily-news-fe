@@ -70,6 +70,10 @@ code {
   background-color: #0D253C;
 }
 
+.btn-secondary:hover{
+  background-color: #182f44;
+}
+
 .btn-primary-dark {
   background-color: #2151CD;
 }
