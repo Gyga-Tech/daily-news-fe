@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useAddArticleMutation, useGetArticleQuery } from "../../features/article/articleSlice"
 import {useSearchParams} from "react-router-dom"
 import { useGetCategoriesQuery } from "../../features/categories/categoriesSlice";
+import './index.css'
+
 const Content = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     // const [filter, setFilter] = useState({})
@@ -22,9 +24,11 @@ const Content = () => {
         onClick={() => setSearchParams({category: item.categories_id})}
          className="col m-3"
          style={{textDecoration: "none", color: "#0D253C"}}>
-        <div className="" style={{width: "150px"}}>
-        <div className="container-card mb-3 d-flex align-items-center mb-5">
-            <img 
+        <div className="d-flex flex-column justify-content-between " style={{width: "150px"}}>
+        <div className="category-img mb-3 mb-5 overflow-hidden rounded-2 shadow-lg">
+            <img
+            style={{height: '200px', width: '150px'}} 
+            // className="img-fluid"
             src={`https://gyga-news.herokuapp.com/public/${item.cover}`}
              alt={item.categories_name} />
         </div>

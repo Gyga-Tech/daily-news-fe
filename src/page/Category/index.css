@@ -1,11 +1,26 @@
 .container-card {
-    width: 150px;
-    height: 200px;
+    /* width: 150px; */
+    /* height: 200px; */
+    /* height: 100%; */
     overflow: hidden;
     box-shadow: 0 0 8px gray;
 }
 
+.category-img:hover {
+    background-color: #63809b33!important;
+}
+
+.header-category {
+    top: 20%;
+    text-shadow: 0 0 4px #DED;
+}
 .btn-explore {
     width: 369px ;
     height: 85px;
+}
+
+@media  only screen and (min-width: 996px) {
+    .header-category {
+        top: 30%;
+    }
 }

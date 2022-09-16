@@ -10,7 +10,7 @@ const Category = () => {
     return (<>
         <Navbar/>
         <Header />
-        <main className="px-5">
+        <main className="container-fluid px-5">
             <div className="row">
                 <Content />
                 {/* <Content2 /> */}
