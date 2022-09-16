@@ -99,8 +99,8 @@ const Navbar = () => {
               }}>Logout</button>  */}
               </div>) : 
               (
-                <><Link to="/authentication/signup" className="nav-link m-3 font-m bold ">Sign Up</Link>
-                <Link to="/authentication/signin" ><button className="btn btn-primary m-3 font-m" type="submit">Sign In</button></Link></>
+                <><Link to="/authentication/signup" className="align-self-center nav-link m-3 font-m bold ">Sign Up</Link>
+                <Link to="/authentication/signin" ><button className="btn btn-primary m-3 font-m rounded-3 shadow px-3" type="submit">Sign In</button></Link></>
             )
           }
           </div>
