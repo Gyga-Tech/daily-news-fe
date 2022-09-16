@@ -27,22 +27,15 @@ const Search = () => {
     },[searchParams.get('title')])
 
     return (<>
-        <div className="section-search d-flex flex-column bg-white">
-            <div className="search-header  d-flex flex-row align-items-center justify-content-between mb-4" style={{ marginTop: "5rem" }}>
-                {/* <div className="search-title">
-                    <div className="input-group flex-nowrap" style={{ marginLeft: "5rem" }}>
-                        <span className="input-group-text bi bi-search" id="addon-wrapping"></span>
-                        <input type="text" class="form-control" placeholder="type here" aria-label="Username" 
-                        aria-describedby="addon-wrapping" value={query} 
-                        onChange={event => setQuery(event.target.value)} />
-                    </div>
-                </div> */}
-                <div className="search-result " style={{ marginLeft: "5rem",  }}>
+        <div className="section-search d-flex flex-column bg-white px-3 px-md-5 mt-5">
+            <div className="search-header  d-flex flex-row align-items-center justify-content-between mb-4" >
+                <div className="search-result mb-3" >
                     <h4 className="mb-0">Search result for <span className="bold">{searchParams.get('title')}</span></h4>
                 </div>
-                <div className="filter " style={{ marginRight: "8rem" }}>
+                <div className="filter " >
                     <div className="dropdown ">
-                        <button className="btn btn-secondary  rounded-3 dropdown-toggle bi bi-funnel-fill" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button className="btn btn-secondary  rounded-3 dropdown-toggle bi bi-funnel-fill me-lg-5" 
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Filter
                         </button>
                         <ul className="dropdown-menu dropdown-menu-end">
@@ -56,19 +49,19 @@ const Search = () => {
                 </div>
             </div>
             
-            <div className="tags d-flex flex-row" style={{ marginLeft: "5rem", marginTop: "1rem", marginBottom: "2rem" }}>
-                <div className="related-tags d-flex align-items-center">
+            <div className="tags d-flex flex-row mb-4" >
+                <div className="related-tags d-flex align-items-center ">
                     <h6 className="bold" 
                         style={{textShadow: '0 2px 3px #888'}}
                     >Related Tags:</h6>
                 </div>
-                <div className="list-tags d-flex flex-row justify-content-between">
+                <div className="list-tags d-flex flex-row justify-content-between ">
                     <div className="btn btn-light text-primary">#ladygaga</div>
                     <div className="btn btn-light text-primary">#jokowidodo</div>
                     <div className="btn btn-light text-primary">#dayniki</div>
                 </div>
             </div>
-            <div className="search-article-list d-flex flex-row flex-wrap" style={{ marginLeft: "5rem" }}>
+            <div className="search-article-list d-flex flex-column flex-sm-row align-items-center align-items-sm-stretch flex-wrap" >
                 {isLoading ? (<Loading />) : article?.data?.results?.filter(item => {
                     if (query === '') {
                         return article.data.results
@@ -85,9 +78,11 @@ const Search = () => {
                     const content = extractContent(item.content).substring(0,100)
                     return (
                         <Link to={`/article/${item.categories_id}`} style={{ textDecoration: "none", color: "#0D253C" }}>
-                            <div className="card-article-list d-flex flex-column justify-content-between mx-3 shadow-lg mb-5 bg-body rounded-2 text-center" style={{ width: "260px", height: '90%' }}>
+                            <div className="card-article-list d-flex flex-column justify-content-between mx-3 shadow-lg mb-5 bg-body rounded-2 text-center overflow-hidden" style={{ width: "260px", height: '90%' }}>
                                 <div className="header-content d-flex" key={index}>
-                                    <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} alt={item.title} title={item.title} style={{ width: "260px", height: "146px" }} />
+                                    <img
+                                    className="" 
+                                    src={`https://gyga-news.herokuapp.com/public/${item.cover}`} alt={item.title} title={item.title} style={{ width: "260px", height: "146px" }} />
                                 </div>
                                 <div className="title-content mt-3">
                                     <h6 style={{ fontWeight: "bold", textShadow: '0 2px 2px #999' }}>

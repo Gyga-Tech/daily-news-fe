@@ -7,7 +7,7 @@ import Header from "./Header"
 const Article = () => {
     return(<>
         <Navbar />
-        <main className="container-fluid px-5">
+        <main className="container-fluid px-sm-5">
             <Header/>
             <Content/>
             <Comment />

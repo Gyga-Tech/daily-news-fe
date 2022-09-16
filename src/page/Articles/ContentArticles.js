@@ -17,9 +17,9 @@ const Content = () => {
 
     return (
         <div>
-            <div className='p-5'>
-                <div class="btn-group button-filter">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle bi bi-funnel icon-filter" type="button" data-bs-toggle="dropdown">
+            <div className='p-5 container-fluid'>
+                <div class="btn-group button-filter mb-4 ">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle bi bi-funnel icon-filter rounded-2" type="button" data-bs-toggle="dropdown">
                         Sort Here
                     </button>
                     <ul class="dropdown-menu menu-filter">
@@ -68,10 +68,10 @@ const RowEconomy = (props) => {
 
     return(<>
         <div className="articles-class">
-            <h4>Economy</h4>
-            <Link to="/search"><h6 className="view-more">View More</h6></Link>
+            <h4 className='bold mb-3' >Economy</h4>
+            <Link to={`/category/article/${1}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
-        <div className='row article-row'>
+        <div className='row article-row justify-content-evenly'>
             {render}
         </div>
     </>)
@@ -85,7 +85,7 @@ const RowPolitics = (props) => {
         isSuccess,
         isError,
         error
-    } = useGetArticleQuery({sortby: sortby, categories: 2, limit: 4})
+    } = useGetArticleQuery({sortby: sortby, categories: 29, limit: 4})
 
     let render
     if(isLoading) {
@@ -98,10 +98,10 @@ const RowPolitics = (props) => {
 
     return(<>
         <div className="articles-class">
-            <h4>Politics</h4>
-            <Link to="/search"><h6 className="view-more">View More</h6></Link>
+            <h4 className='bold mb-3'>Politics</h4>
+            <Link to={`/category/article/${2}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
-        <div className='row article-row'>
+        <div className='row article-row justify-content-center'>
             {render}
         </div>
     </>)
@@ -128,10 +128,10 @@ const RowCountry = (props) => {
 
     return(<>
         <div className="articles-class">
-            <h4>Country</h4>
-            <Link to="/search"><h6 className="view-more">View More</h6></Link>
+            <h4 className='bold mb-3'>Country</h4>
+            <Link to={`/category/article/${3}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
-        <div className='row article-row'>
+        <div className='row article-row justify-content-center'>
             {render}
         </div>
     </>)
@@ -158,8 +158,8 @@ const RowHealth = (props) => {
 
     return(<>
         <div className="articles-class">
-            <h4>Health</h4>
-            <Link to="/search"><h6 className="view-more">View More</h6></Link>
+            <h4 className='bold mb-3'>Health</h4>
+            <Link to={`/category/article/${4}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
         <div className='row article-row'>
             {render}
@@ -188,8 +188,8 @@ const RowBeauty = (props) => {
 
     return(<>
         <div className="articles-class">
-            <h4>Beauty</h4>
-            <Link to="/search"><h6 className="view-more">View More</h6></Link>
+            <h4 className='bold mb-3'>Beauty</h4>
+            <Link to={`/category/article/${5}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
         <div className='row article-row'>
             {render}

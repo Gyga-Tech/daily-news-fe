@@ -3,12 +3,11 @@ import { logout } from '../auth/authSlice'
 
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: "https://gyga-news.herokuapp.com/api/v1",
+    baseUrl: `${process.env.REACT_APP_API_URL}`,
     prepareHeaders: (headers, {getState}) => {
         const token = getState().auth.token
         if(token) {
             headers.set("authorization", token)
-    
         }
         return headers
     }

@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useGetArticleIdQuery, useGetArticleQuery} from "../../features/article/articleSlice";
 import { Link } from "react-router-dom";
 import moment from "moment/moment";
+import CardArticles from "../Articles/Card";
+import './card.css'
 
 
 const Section2 = () => {
@@ -49,24 +51,24 @@ const Render = (props) => {
     const content = extractContent(item.content).substring(0,50)
     return(
         <Link to={`/article/${item.article_id}`}  style={{color: "#0D253C", textDecoration: "none"}} >
-            <div className="card me-3 mb-3 shadow-lg" style={{width: '16rem', height: "23rem" }}>
+            <div className="card card-catArticle me-3 mb-2 shadow-lg" style={{width: '16rem', height: "80%" }}>
              <div style={{height: "13rem", overflow: "hidden"}}>
                 <img src={`https://gyga-news.herokuapp.com/public/${item.cover}`} className="card-img-top" alt={item.title}/>
              </div>
             <div className="card-body p-2">
-                <h5 className="card-title text-center bold " >{item.title.substring(0,40)}...</h5>
-                <p className="card-text" >{content?.length < 50 ? content : `${content}...`}</p>
+                <h5 className="card-title text-center bold " >{item.title}</h5>
+                <p className="card-text" >{}</p>
                
             </div>
             <div className="card-footer">
             <div className="d-flex justify-content-evenly align-items-center">
                 <div className="d-flex">
                     <i className="bi bi-hand-thumbs-up me-1"></i>
-                    <p className="font-s mb-1">21k</p>
+                    <p className="font-xs mb-1">21k</p>
                 </div>
                 <div className="d-flex">
                 <i className="bi bi-clock me-1"></i>
-                    <p className="font-s mb-1">{moment(item.updated_at).startOf('day').fromNow()}</p>
+                    <p className="font-xs mb-1">{moment(item.updated_at).startOf('day').fromNow()}</p>
                 </div>
                 <i class="bi bi-bookmark"></i>
                 </div>

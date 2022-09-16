@@ -7,6 +7,8 @@ import Navbar from '../../component/Navbar'
 import Footer from '../../component/Footer'
 
 const Home = () => {
+
+  console.log(process.env.API_DEV)
   return (
     <>
       <Navbar />

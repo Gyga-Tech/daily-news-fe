@@ -6,9 +6,9 @@
 
 .card-articles {
     width: 300px;
-    border-radius: 0px;
     cursor: pointer;
     margin-bottom: 10px;
+    height: 100%;
 }
 
 a {
@@ -21,7 +21,7 @@ a:hover {
 }
 
 .card-articles:hover {
-    background-color: cornsilk;
+    background-color: #63809b33;
 }
 
 .img-articles {

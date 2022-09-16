@@ -8,31 +8,146 @@
 }
 
 .title-header-articles {
-    padding: 5em;
+    padding-top: 8em;
+    padding-left: 1em;
+    padding-right: 1em;
     z-index: 999;
+    text-align: center;
 }
 
 .title-header-articles h1 {
     font-family: 'Georgia';
     font-style: normal;
     font-weight: 700;
-    font-size: 65px;
-    width: 50%;
-    line-height: 74px;
-
+    font-size: 30px;
+    line-height: 30px;
     color: #0D253C;
 }
 
 .title-header-articles p {
     font-family: 'Lato';
-    width: 40%;
+    width: 100%;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 31px;
-
+    margin-bottom: 2rem;
     color: #0D253C;
 }
 .title-header-articles button {
     padding: 10px 30px;
 }
+
+@media only screen and (min-width: 576px) {
+    
+    .title-header-articles h1 {
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 65px;
+        line-height: 74px;
+    
+        color: #0D253C;
+    }
+    
+    .title-header-articles {
+        padding: 4em;
+        z-index: 999;
+    }
+
+    .title-header-articles p {
+        font-family: 'Lato';
+        width: 40%;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 31px;
+    
+        color: #0D253C;
+    }
+
+    .title-header-articles p {
+        font-family: 'Lato';
+        width: 100%;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 31px;
+        margin-bottom: 2rem;
+        color: #0D253C;
+    }
+    .title-header-articles button {
+        padding: 10px 30px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    
+    .title-header-articles h1 {
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 44px;
+        color: #0D253C;
+    }
+    
+    .title-header-articles {
+        padding: 4em;
+        z-index: 999;
+        width: 60%;
+        text-align: start;
+    }
+
+    
+
+    .title-header-articles p {
+        font-family: 'Lato';
+        /* width: 100%; */
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 31px;
+        margin-bottom: 2rem;
+        color: #0D253C;
+    }
+    .title-header-articles button {
+        padding: 10px 30px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    
+    .title-header-articles h1 {
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 44px;
+        color: #0D253C;
+    }
+    
+    .title-header-articles {
+        padding: 4em;
+        z-index: 999;
+        width: 40%;
+        text-align: start;
+    }
+
+    
+
+    .title-header-articles p {
+        font-family: 'Lato';
+        /* width: 100%; */
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 31px;
+        margin-bottom: 2rem;
+        color: #0D253C;
+    }
+    .title-header-articles button {
+        padding: 10px 30px;
+    }
+}
+

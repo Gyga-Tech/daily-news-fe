@@ -33,7 +33,7 @@ const Content = () => {
 const Render = (props) => {
   const { item } = props
   return (
-    <div className="container-fluid m-3 text-align-center">
+    <div className="container-fluid mx-3 my-5 text-align-center">
       {parse(item.content)}
     </div>
   )

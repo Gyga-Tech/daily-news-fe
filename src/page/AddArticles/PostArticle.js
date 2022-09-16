@@ -10,7 +10,7 @@ import './PostArticle.css'
 import Auth from '../Auth'
 
 const Loading = () => {
-  ;<>Loading...</>
+  return<>Loading...</>
 }
 
 const PostArticle = () => {
@@ -179,7 +179,7 @@ const PostArticle = () => {
                         {getIsLoading ? (
                           <Loading />
                         ) : (
-                          categories.data.map((item, index) => {
+                          categories?.data?.map((item, index) => {
                             return (
                               <>
                                 <option value={item.categories_id}>

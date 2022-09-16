@@ -24,8 +24,8 @@ const Navbar = () => {
     navigate(`/search?title=`)
   }
   return (
-    <nav className="navbar navbar-expand-lg bg-light sticky-top">
-      <div className="container-fluid d-flex justify-content-around px-5">
+    <nav className="navbar navbar-expand-lg bg-light sticky-top shadow">
+      <div className="container-fluid d-flex justify-content-around px-2 px-md-5">
         <Link to="/" className="navbar-brand font-xl bold " href="#">Daily-News</Link>
         <button 
           className="navbar-toggler" type="button"
@@ -73,7 +73,7 @@ const Navbar = () => {
           {
             userId ? (<div className="d-flex align-items-center">
             <form className="d-flex" onSubmit={handleSubmit} role="search">
-              <input className="form-control  me-2 " type="search" placeholder="Search" aria-label=" Search" 
+              <input className="form-control  me-3 " type="search" placeholder="Search" aria-label=" Search" 
                 // onSubmit={handleSubmit}
                 onChange={(e) => setSearch(e.target.value)}
               />

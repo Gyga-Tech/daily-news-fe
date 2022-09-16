@@ -2,8 +2,8 @@ import pp from '../../assets/img/profileDefault.jpg'
 const Comment = () => {
   return (
     <section className="container-fulid comment-wrap">
-      <h3 className="font-l">Comment</h3>
-      <div className="row mb-3 comment">
+      <h3 className="font-l mb-3 ">Comment</h3>
+      <div className=" mb-3 comment">
         <div className="profile-container me-3">
           <img
             className="rounded"
@@ -12,7 +12,7 @@ const Comment = () => {
             alt="profile-pitcure"
           />
         </div>
-        <form className="col-9">
+        <form className="col-8">
           <div className=" ">
             <p className="font-s bold mb-1">John Doe</p>
             <textarea
@@ -21,7 +21,7 @@ const Comment = () => {
               placeholder="leave your comment here"
               rows="3"
             ></textarea>
-            <button className="btn btn-primary">Submit</button>
+            <button className="btn btn-primary rounded-2">Submit</button>
           </div>
         </form>
       </div>
