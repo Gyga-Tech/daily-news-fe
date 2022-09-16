@@ -23,10 +23,10 @@ const ContentLatestNews = () => {
   return (
     <>
       <div className="container">
-        <div className="title mt-5 mb-3">
-          <h6>Latest News</h6>
+        <div className="title mt-5 mb-4">
+          <h4 className='bold text-center text-sm-start'>Latest News</h4>
         </div>
-        <div className="latest-news-list d-flex flex-column">
+        <div className="container-fluid">
           {isLoading ? (
             <Loading />
           ) : (
@@ -34,24 +34,24 @@ const ContentLatestNews = () => {
               return (
                 <>
                   <div
-                    className="card-latest-news-list"
+                    className="row overflow-hidden shadow mb-5 rounded-3"
                     style={{
-                      width: '100%',
+                      // width: '100%',
                       height: '250px',
                     }}
                   >
-                    <div className="cover col-md-2" key={index}>
+                    <div className="cover-home p-0 col-md-2" key={index}>
                       <img
                         src={`https://gyga-news.herokuapp.com/public/${item.cover}`}
                       ></img>
                     </div>
-                    <div className="content col-md-8">
-                      <div className="content-title">
-                        <h6>{item.title.slice(0, 100)}</h6>
+                    <div className="col-md-8">
+                      <div className="content-title text-primary bold " color=''>
+                        <h3>{item.title}</h3>
                       </div>
                       <div className="content-fill">
                         <p style={{ width: '100%', height: '150px' }}>
-                          {parse(`${item.content.slice(0, 150)}`)}
+                          {parse(`${item.content.slice(0, 300)}`)}
                         </p>
                       </div>
                       <div className="properties-info">
@@ -72,7 +72,7 @@ const ContentLatestNews = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="read-now col-md-2">
+                    <div className="read-now-home col-md-2">
                       <Link
                         to={`/article/${item.article_id}`}
                         style={{
@@ -80,7 +80,7 @@ const ContentLatestNews = () => {
                           color: '#0D253C',
                         }}
                       >
-                        <button className="btn btn-primary">Read now</button>
+                        <button className="btn btn-primary rounded-2">Read now</button>
                       </Link>
                     </div>
                   </div>

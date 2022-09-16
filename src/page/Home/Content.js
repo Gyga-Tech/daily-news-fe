@@ -116,7 +116,7 @@ const Content = () => {
         <div className="row">
           <div className="popular-tags mt-5">
             <div className="field-popular-tag">
-              <h6>Popular Tags</h6>
+              <h5 className='bold'>Popular Tags</h5>
             </div>
             <div className="btn-tag d-flex flex-row justify-content-between mt-2">
               <button className="btn btn-light text-primary">#ladygaga</button>
@@ -140,7 +140,7 @@ const Content = () => {
         <div className="row">
           <div className="category mt-5">
             <div className="field-category">
-              <h6>Category</h6>
+              <h3 className='bold text-center text-sm-start'>Category</h3>
             </div>
 
             {/* <div className="field-cover d-flex flex-column justify-content-between">
@@ -156,8 +156,9 @@ const Content = () => {
                         to={`/category/article/${item.categories_id}`}
                         style={{ textDecoration: 'none' }}
                       >
-                        <div className="card-category-list mt-3" key={index}>
+                        <div className="card-category-list mt-3 " key={index}>
                           <img
+                            className='rounded-2 shadow'
                             src={`https://gyga-news.herokuapp.com/public/${item.cover}`}
                             title={item.categories_name}
                           />
@@ -180,7 +181,7 @@ const Content = () => {
         <div className="row">
           <div className="recommended">
             <div className="field-recommended">
-              <h6>Recommended</h6>
+              <h3 className='bold text-center text-sm-start'>Recommended</h3>
             </div>
             <Slider {...config}>
               {/* <div className="card-recommended"> */}
@@ -195,7 +196,8 @@ const Content = () => {
                         style={{ textDecoration: 'none' }}
                       >
                         <div
-                          className="card-recommended-list d-flex justify-content-between align-items-end mt-3 shadow-sm mb-5 bg-white rounded"
+                          className="card-recommended-list border rounded-4 shadow d-flex 
+                          justify-content-between align-items-end mt-3  mb-5 bg-white overflow-hidden"
                           style={{ width: '350px' }}
                         >
                           <div className="cover" key={index}>
@@ -204,10 +206,9 @@ const Content = () => {
                               style={{ width: '126px', height: '202px' }}
                             ></img>
                           </div>
-                          <div className="content-recommended">
-                            <div className="content-title text-primary">
-                              <h6>{item.title.slice(0, 20)}</h6>
-                              <p>{parse(`${item.content.slice(0, 50)}`)}</p>
+                          <div className="content-recommended ">
+                            <div className="content-title text-primary p-2 ">
+                              <h5>{item.title}</h5>
                             </div>
                             <div
                               className="properties"
