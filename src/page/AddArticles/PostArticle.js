@@ -7,7 +7,8 @@ import { useGetCategoriesQuery } from '../../features/categories/categoriesSlice
 import { useSelector } from 'react-redux'
 import 'quill/dist/quill.snow.css'
 import './PostArticle.css'
-import Auth from '../Auth'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const Loading = () => {
   return<>Loading...</>
@@ -18,7 +19,7 @@ const PostArticle = () => {
   const [coverPreview, setCoverPreview] = useState(null)
   const [errorImg, setErrorImg] = useState(false)
   const formData = new FormData()
-  const { userId } = useSelector((state) => state.auth)
+  const { userId, role } = useSelector((state) => state.auth)
   const [formAddData, setFormAddData] = useState({
     userID: userId,
   })
@@ -72,15 +73,32 @@ const PostArticle = () => {
     event.preventDefault()
 
     addArticle(formData)
-
-    alert('Article has been added')
     setRefetch(refetch)
-    // if (isError) {
-    //     alert("error")
-    // } if (isSuccess) {
-    //     alert("Article has been added")
-    // }
   }
+
+  if(isSuccess) {
+    toast.success('Success, the article has been published', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+  })
+  } else if(isError) {
+    toast.error(`error something wrong`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+  }
+
+
 
   return (
     <>
@@ -213,6 +231,25 @@ const PostArticle = () => {
                         disabled
                         style={{ width: '100%' }}
                       >
+                        Loading
+                      </button>
+                    ) : role === 'user' ? (
+                      <button
+                        type="submit"
+                        className="btn btn-primary btn-block"
+                        onClick={() => {
+                          toast.success('Success, request has been send', {
+                          position: "top-right",
+                          autoClose: 3000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                        });
+                        }}
+                        style={{ width: '100%' }}
+                      >
                         Request Publish Article
                       </button>
                     ) : (
@@ -222,7 +259,7 @@ const PostArticle = () => {
                         onClick={handleAddNewArticle}
                         style={{ width: '100%' }}
                       >
-                        Request Publish Article
+                        Publish Article
                       </button>
                     )}
                   </div>
@@ -232,6 +269,7 @@ const PostArticle = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </>
   )
 }
