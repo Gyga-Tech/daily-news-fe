@@ -41,7 +41,6 @@ const Content = () => {
                 <RowPolitics />
                 <RowCountry />
                 <RowHealth />
-                <RowBeauty />
             </div>
         </div>
     )
