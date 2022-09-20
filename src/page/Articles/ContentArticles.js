@@ -101,7 +101,7 @@ const RowPolitics = (props) => {
             <h4 className='bold mb-3'>Politics</h4>
             <Link to={`/category/article/${2}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
-        <div className='row article-row justify-content-center'>
+        <div className='row article-row justify-content-evenly'>
             {render}
         </div>
     </>)
@@ -131,7 +131,7 @@ const RowCountry = (props) => {
             <h4 className='bold mb-3'>Country</h4>
             <Link to={`/category/article/${3}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
-        <div className='row article-row justify-content-center'>
+        <div className='row article-row justify-content-evenly'>
             {render}
         </div>
     </>)
@@ -161,40 +161,12 @@ const RowHealth = (props) => {
             <h4 className='bold mb-3'>Health</h4>
             <Link to={`/category/article/${4}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
-        <div className='row article-row'>
+        <div className='row article-row justify-content-evenly'>
             {render}
         </div>
     </>)
 }
 
-const RowBeauty = (props) => {
-    const {sortby} = props
-    const {
-        data: article,
-        isLoading,
-        isSuccess,
-        isError,
-        error
-    } = useGetArticleQuery({sortby: sortby, categories: 5, limit: 4})
 
-    let render
-    if(isLoading) {
-        render = <h1>Loading...</h1>
-    } else if(isSuccess) {
-        render = article.data.results.map((item)=><Card item={item} />)
-    } else if(isError) {
-        render = <h1>{error.originalStatus}</h1>
-    }
-
-    return(<>
-        <div className="articles-class">
-            <h4 className='bold mb-3'>Beauty</h4>
-            <Link to={`/category/article/${5}`}><h6 className="view-more color-primary">View More</h6></Link>
-        </div>
-        <div className='row article-row'>
-            {render}
-        </div>
-    </>)
-}
 
 export default Content

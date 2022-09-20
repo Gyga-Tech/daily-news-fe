@@ -28,7 +28,7 @@ const Search = () => {
 
     return (<>
         <div className="section-search d-flex flex-column bg-white px-3 px-md-5 mt-5">
-            <div className="search-header  d-flex flex-row align-items-center justify-content-between mb-4" >
+            <div className="search-header  d-flex flex-column flex-sm-row align-items-center justify-content-between mb-4" >
                 <div className="search-result mb-3" >
                     <h4 className="mb-0">Search result for <span className="bold">{searchParams.get('title')}</span></h4>
                 </div>
@@ -49,7 +49,7 @@ const Search = () => {
                 </div>
             </div>
             
-            <div className="tags d-flex flex-row mb-4" >
+            <div className="tags d-sm-flex flex-row mb-4 d-none" >
                 <div className="related-tags d-flex align-items-center ">
                     <h6 className="bold" 
                         style={{textShadow: '0 2px 3px #888'}}
@@ -62,7 +62,8 @@ const Search = () => {
                 </div>
             </div>
             <div className="search-article-list d-flex flex-column flex-sm-row align-items-center align-items-sm-stretch flex-wrap" >
-                {isLoading ? (<Loading />) : article?.data?.results?.filter(item => {
+                {isLoading ? (<Loading />) : article?.data?.results.length === 0 ? <h1 className="text-center bold py-5">Article Not Found</h1> 
+                : article?.data?.results?.filter(item => {
                     if (query === '') {
                         return article.data.results
                     } else if (item.title.toLowerCase().includes(query.toLowerCase())) {
