@@ -23,9 +23,6 @@ const SignIn = () => {
     setErrMsg('')
   }, [email, pwd])
 
-  useEffect(() => {
-    setErrMsg('')
-  }, [email, pwd])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -39,12 +36,10 @@ const SignIn = () => {
     } catch (err) {
       if (err.status === 400) {
         setErrMsg('email/password is wrong')
-        alert(errMsg)
       } else if (err.status === 401) {
         setErrMsg('unauthorized')
       } else {
         setErrMsg('sign in failed')
-        alert(errMsg)
       }
     }
   }
@@ -86,10 +81,16 @@ const SignIn = () => {
                 required
               />
             </div>
+
+            {errMsg && <div
+                style={{backgroundColor: '#faf172'}} 
+                className=' text-center p-2 mb-3 rounded-3'
+            >{errMsg}</div>}
+            
             <div className="btn1">
               <button
                 className="btn btn-primary btn-lg mb-5 btn-login"
-                onClick={handleSubmit}
+                type='submit'
               >
                 Sign In
               </button>

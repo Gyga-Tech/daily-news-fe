@@ -3,7 +3,7 @@ import facebook from '../../../assets/img/Facebook.svg'
 import google from '../../../assets/img/Google.svg'
 import twitter from '../../../assets/img/Twitter.svg'
 import { useRegisterMutation } from '../../../features/auth/authApiSlice'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
@@ -20,6 +20,7 @@ const SignUp = () => {
     phoneNumber: '',
   })
   const [errMsg, setErrMsg] = useState('')
+
 
   const handleSignup = async (event) => {
     event.preventDefault()
@@ -57,11 +58,13 @@ const SignUp = () => {
                 className="form-control py-2"
                 id="Email address"
                 placeholder="Enter your email adress"
-                onChange={(event) =>
+                onChange={(event) => {
                   setFormRegister((prevData) => ({
                     ...prevData,
                     email: event.target.value,
-                  }))
+                  }));
+                  setErrMsg('')
+                }
                 }
                 required
               />
@@ -75,12 +78,13 @@ const SignUp = () => {
                 className="form-control py-2"
                 id="Password"
                 placeholder="Enter your password"
-                onChange={(event) =>
+                onChange={(event) => {
                   setFormRegister((prevData) => ({
                     ...prevData,
                     password: event.target.value,
                   }))
-                }
+                  setErrMsg('')
+                }}
                 required
               />
             </div>
@@ -93,12 +97,13 @@ const SignUp = () => {
                 className="form-control py-2"
                 id="Phone Number"
                 placeholder="Enter your phone number"
-                onChange={(event) =>
+                onChange={(event) => {
                   setFormRegister((prevData) => ({
                     ...prevData,
                     phoneNumber: event.target.value,
-                  }))
-                }
+                  }));
+                  setErrMsg('')
+                }}
                 required
               />
             </div>
@@ -111,12 +116,13 @@ const SignUp = () => {
                 className="form-control py-2"
                 id="username"
                 placeholder="Enter your username"
-                onChange={(event) =>
+                onChange={(event) => {
                   setFormRegister((prevData) => ({
                     ...prevData,
                     username: event.target.value,
-                  }))
-                }
+                  }));
+                  setErrMsg('')
+                }}
                 required
               />
             </div>
@@ -129,20 +135,22 @@ const SignUp = () => {
                 className="form-control py-2"
                 id="name"
                 placeholder="Enter your username"
-                onChange={(event) =>
+                onChange={(event) => {
                   setFormRegister((prevData) => ({
                     ...prevData,
                     name: event.target.value,
-                  }))
-                }
+                  }));
+                  setErrMsg('')
+                }}
                 required
               />
             </div>
-            {errMsg && (
-              <div className="font-m p-3 color-white mb-3 bold rounded-2 bg-danger">
-                {errMsg}
-              </div>
-            )}
+
+            {errMsg && <div
+                style={{backgroundColor: '#faf172'}} 
+                className=' text-center p-2 mb-3 rounded-3'
+            >{errMsg}</div>}
+
             <div className="submit">
               {isLoading ? (
                 <button
@@ -153,7 +161,7 @@ const SignUp = () => {
                 </button>
               ) : (
                 <button
-                  onClick={handleSignup}
+                  type='submit'
                   className="btn btn-primary btn-lg mb-5 btn-login"
                 >
                   Sign Up
