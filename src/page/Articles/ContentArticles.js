@@ -66,8 +66,8 @@ const RowEconomy = (props) => {
     }
 
     return(<>
-        <div className="articles-class">
-            <h4 className='bold mb-3' >Economy</h4>
+        <div className="articles-class mx-lg-4">
+            <h4 className='bold mb-4' >Economy</h4>
             <Link to={`/category/article/${1}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
         <div className='row article-row justify-content-evenly'>
@@ -96,8 +96,8 @@ const RowPolitics = (props) => {
     }
 
     return(<>
-        <div className="articles-class">
-            <h4 className='bold mb-3'>Politics</h4>
+        <div className="articles-class mx-lg-4">
+            <h4 className='bold mb-4'>Politics</h4>
             <Link to={`/category/article/${2}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
         <div className='row article-row justify-content-evenly'>
@@ -127,7 +127,7 @@ const RowCountry = (props) => {
 
     return(<>
         <div className="articles-class">
-            <h4 className='bold mb-3'>Country</h4>
+            <h4 className='bold mb-4 mx-lg-4'>Country</h4>
             <Link to={`/category/article/${3}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
         <div className='row article-row justify-content-evenly'>
@@ -157,7 +157,7 @@ const RowHealth = (props) => {
 
     return(<>
         <div className="articles-class">
-            <h4 className='bold mb-3'>Health</h4>
+            <h4 className='bold mb-4 mx-lg-4'>Health</h4>
             <Link to={`/category/article/${4}`}><h6 className="view-more color-primary">View More</h6></Link>
         </div>
         <div className='row article-row justify-content-evenly'>

@@ -23,7 +23,7 @@ const PostArticle = () => {
   const [formAddData, setFormAddData] = useState({
     userID: userId,
   })
-  const [addArticle, { isLoading, isError, isSuccess }] = useAddArticleMutation(
+  const [addArticle, { isLoading}] = useAddArticleMutation(
     {},
   )
   const handleImageChange = (event) => {
@@ -69,14 +69,11 @@ const PostArticle = () => {
   }, [quill])
 
   const [refetch, setRefetch] = useState(false)
-  const handleAddNewArticle = (event) => {
+  const handleAddNewArticle = async (event) => {
     event.preventDefault()
 
-    addArticle(formData)
-    setRefetch(refetch)
-  }
-
-  if(isSuccess) {
+    try {
+      await addArticle(formData).unwrap()
     toast.success('Success, the article has been published', {
       position: "top-right",
       autoClose: 3000,
@@ -86,19 +83,20 @@ const PostArticle = () => {
       draggable: true,
       progress: undefined,
   })
-  } else if(isError) {
-    toast.error(`error something wrong`, {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    })
+    setRefetch(refetch)
+    } catch (err) {
+      toast.error(`error something wrong`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
+    }
+    
   }
-
-
 
   return (
     <>
