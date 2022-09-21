@@ -12,6 +12,10 @@ To get the React app running locally:
 * Create a `.env` file and reference the `.env.example` file
 * `npm start` to start the local development server
 
+## Demo App
+
+[Demo web app](https://gygatech-daily-news.netlify.app)
+
 ## Technology
 
 This project is using :
@@ -33,14 +37,10 @@ This project is using :
 | Article View Page | ![daily-news-article](https://user-images.githubusercontent.com/105697744/191482358-9eca2008-9333-4743-b688-507996008b30.png) | ![mobile-daily-news-article](https://user-images.githubusercontent.com/105697744/191482441-0e8f0d9f-b394-42b2-904b-656ac7daa09e.png) |
 | Articles Page | ![daiy-news-articles](https://user-images.githubusercontent.com/105697744/191483858-9e42af64-16f7-45ae-9620-08bc3fb8b05b.png) | ![mobile-daily-news-articles](https://user-images.githubusercontent.com/105697744/191484038-1c4c0b2c-9b55-4a94-89c8-cc048e77e5ee.png) |
 
-## Demo App
-
-[Demo web app](https://gygatech-daily-news.netlify.app))
-
 
 ## Features
 The features in this project include:
-- User can read news inside the world
+- user can search and filter articles they want to see
+- user sort search article by category
+- User can read the Article
 - User can request to be an Author and Publish his own News
-- User can likes and saves the news he want
-- User can interract with author through comment
